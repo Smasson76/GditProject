@@ -1,4 +1,6 @@
-<?php include '../view/header.php'; ?>
+<?php
+session_start();
+include '../view/header.php'; ?>
 <main>
     <nav> 
     <ul>

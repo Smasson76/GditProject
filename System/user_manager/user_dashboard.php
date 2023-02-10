@@ -1,18 +1,14 @@
-<?php include '../view/header.php'; 
-
-
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-    $_SESSION['authuser'] =  $user;
-
+<?php  
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../view/header.php';
 ?>
 <main>
     <nav>
     <ul>
-        <h2>Welcome <?php echo $user; ?>, </h2><br>
-
-        <li><a href="">View Profile</a></li>
+        <h2>Welcome <?php echo $_SESSION['user']['user_fname'] ?>, </h2><br>
+        <li><a href="view_profile.php">View Profile</a></li>
         <li><a href="">Account Management</a></li>
         <li><a href="start_baseline.php">Start Baseline</a></li>
         <li><a href="">View Documents</a></li>

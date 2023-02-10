@@ -1,13 +1,10 @@
 <?php include ('../view/header.php');?>
-
-
 <main>
-<div class="split left">
+<div class="split left brand">
   <div class="centered">
-  <svg class="logo" id="" style="width:254px;height:135px" version="1.1" x="0px" y="0px" viewBox="0 0 1671.4 228" xml:space="preserve"><title>General Dynamics Information Technology</title><style type="text/css">
-	.st0{fill:#727678;}
-</style><g>
-  <path class="st0" d="M1647.4,98h-71.8V81.4h64.2c3.6,0,7.5-1,7.5-5.3c0-4.4-3.8-5.3-7.5-5.3h-43.3
+  <svg class="logo white" id="" version="1.1" x="0px" y="0px" viewBox="0 0 1671.4 228" xml:space="preserve">
+	<title>General Dynamics Information Technology</title>
+	<g> <path d="M1647.4,98h-71.8V81.4h64.2c3.6,0,7.5-1,7.5-5.3c0-4.4-3.8-5.3-7.5-5.3h-43.3
 		c-12.4,0-22.2-9.9-22.2-22.4c0-12.5,9.7-22.3,22.2-22.3h72.4v16.6h-64.7c-3.3,0-6.1,1.3-6.1,4.9c0,3.6,3.1,4.9,6.1,4.9h43.2
 		c13.2,0,24,9.2,24,22.8C1671.4,88.9,1660.7,98,1647.4,98L1647.4,98z M1501.3,98c-20.9,0-38.6-14.2-38.6-36c0-21.9,17.6-36,38.6-36
 		h59.1v17.3h-52.2c-11.4,0-21.2,6.5-21.2,18.8c0,12.2,9.9,18.7,21.2,18.7h52.2V98H1501.3z M1426.2,98h23.8V26h-23.8V98z M1387.8,98
