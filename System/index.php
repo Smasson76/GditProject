@@ -76,6 +76,7 @@
         <br>
         <br>
         
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         <label>&nbsp;</label>
         <input type="submit" value="Login" />
@@ -83,6 +84,9 @@
         <input class="button white pill" type="submit" value="Login" />
         <!--<li><a href="user_manager">Display Incidents</a></li> -->
 >>>>>>> 37b87538948c46a4703676a80563d500a4b02647
+=======
+        <input class="button white pill" type="submit" value="Login" />
+>>>>>>> Stashed changes
         <br><br>
     </form>
   </div>
