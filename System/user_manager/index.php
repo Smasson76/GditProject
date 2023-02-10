@@ -21,7 +21,7 @@ else if ($action == 'login') {
         include('../errors/error.php');
     } else { 
         $user = get_user($username);
-        header('Location: .?action=user_dashboard'); //Display the dashboard page
+        include('user_dashboard.php');
     }
 }
 
