@@ -1,4 +1,21 @@
-<?php include 'view/header.php'; ?>
+<?php include 'view/header.php';
+require('/model/database.php');
+require('/model/user_db.php');
+
+$action = filter_input(INPUT_POST, 'action');
+
+else if ($action == 'search_customer') {
+    $last_name = filter_input(INPUT_POST, 'lastName');
+    if ($last_name == NULL || $last_name == FALSE) {
+        $error = "Invalid data. Check all fields and try again.";
+        include('../errors/error.php');
+    } else { 
+        $customers = get_selected_customers($last_name);
+        include('customer_list.php');
+    }
+}
+
+?>
 
 
 <main>
@@ -76,7 +93,6 @@
         <br>
         <br>
         
-        <input type="submit" value="Login" />
         <input class="button white pill" type="submit" value="Login" />
         <br><br>
     </form>
