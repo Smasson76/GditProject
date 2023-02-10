@@ -12,6 +12,7 @@ include '../view/header.php';
         <li><a href="">Account Management</a></li>
         <li><a href="start_baseline.php">Start Baseline</a></li>
         <li><a href="">View Documents</a></li>
+    </ul> 
     </ul>    
     </nav>
 </section>

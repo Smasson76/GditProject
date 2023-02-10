@@ -45,6 +45,8 @@ else if ($action == 'update_user') {
     $userLast = filter_input(INPUT_POST, 'lastName');
     $userPass = filter_input(INPUT_POST, 'password');
 
+    $_SESSION['user'] = [];
+    $_SESSION['user']['usern'] = $username;
     $_SESSION['user']['user_fname'] = $userFirst;
     $_SESSION['user']['user_lname'] = $userLast;
     $_SESSION['user']['user_pass'] = $userPass;
@@ -57,5 +59,4 @@ else if ($action == 'update_user') {
         include('user_dashboard.php');
     }
 }
-
 ?>

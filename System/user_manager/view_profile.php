@@ -12,7 +12,7 @@ include '../view/header.php';
         <input type="hidden" name="action" value="update_user">
 
         <label>ID: <?php echo $_SESSION['user']['usern'] ?></label>
-        <input type="hidden" name="username" value=""/>
+        <input type="hidden" name="username" value="<?php echo $_SESSION['user']['usern'] ?>"/>
         <br><br>
 
         <label>First Name:</label>
