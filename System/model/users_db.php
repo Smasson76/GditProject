@@ -1,7 +1,7 @@
 <?php
 
 //Get the selected user
-function get_customer($username) {
+function get_user($username) {
     global $db;
     $query = 'SELECT username FROM users
               WHERE username = :username';

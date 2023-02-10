@@ -11,7 +11,7 @@
     <h1>GDIT SYSTEM</h1>
     <nav>
         <ul>
-            <li><a href="/GDITProject/System/user_manager">View Dashboard</a></li>
+            <li><a href="/GDITProject/System/user_manager/user_dashboard.php">View Dashboard</a></li>
         </ul>
     </nav>
 </header>
