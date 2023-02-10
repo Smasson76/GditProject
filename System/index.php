@@ -9,8 +9,8 @@
 <div class="split right">
   <div class="centered">
   <h1>Log in</h1>
-    <form action="index.php" method="post" id="add_technician_form">
-        <input type="hidden" name="action" value="add_technician">
+    <form action="index.php" method="post" id="login_form">
+        <input type="hidden" name="action" value="user_dashboard">
 
         <label>Username:</label>
         <input type="text" name="username" />
@@ -22,7 +22,8 @@
         <br>
         
         <label>&nbsp;</label>
-        <input type="submit" value="Login" />
+        <!--<input type="submit" value="Login" /> -->
+        <li><a href="user_manager">Display Incidents</a></li>
         <br><br>
     </form>
   </div>
