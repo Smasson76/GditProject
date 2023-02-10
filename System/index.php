@@ -93,7 +93,20 @@ else if ($action == 'search_customer') {
         <br>
         <br>
         
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+        <label>&nbsp;</label>
+        <input type="submit" value="Login" />
+=======
+>>>>>>> 2a6d2931a468cc64fdfec92b0018dc9b7351b437
         <input class="button white pill" type="submit" value="Login" />
+        <!--<li><a href="user_manager">Display Incidents</a></li> -->
+>>>>>>> 37b87538948c46a4703676a80563d500a4b02647
+=======
+        <input class="button white pill" type="submit" value="Login" />
+>>>>>>> Stashed changes
         <br><br>
     </form>
   </div>
