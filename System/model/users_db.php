@@ -1,6 +1,6 @@
 <?php
 
-//Get the selected customer
+//Get the selected user
 function get_customer($username) {
     global $db;
     $query = 'SELECT username FROM users

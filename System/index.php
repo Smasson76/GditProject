@@ -4,14 +4,14 @@ require('/model/user_db.php');
 
 $action = filter_input(INPUT_POST, 'action');
 
-else if ($action == 'search_customer') {
-    $last_name = filter_input(INPUT_POST, 'lastName');
-    if ($last_name == NULL || $last_name == FALSE) {
+else if ($action == 'get_customer') {
+    $username = filter_input(INPUT_POST, 'username');
+    if ($username == NULL || $username == FALSE) {
         $error = "Invalid data. Check all fields and try again.";
         include('../errors/error.php');
     } else { 
-        $customers = get_selected_customers($last_name);
-        include('customer_list.php');
+        $customers = get_selected_customers($username);
+        include('usermanager/index.php');
     }
 }
 
@@ -93,20 +93,7 @@ else if ($action == 'search_customer') {
         <br>
         <br>
         
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-        <label>&nbsp;</label>
-        <input type="submit" value="Login" />
-=======
->>>>>>> 2a6d2931a468cc64fdfec92b0018dc9b7351b437
         <input class="button white pill" type="submit" value="Login" />
-        <!--<li><a href="user_manager">Display Incidents</a></li> -->
->>>>>>> 37b87538948c46a4703676a80563d500a4b02647
-=======
-        <input class="button white pill" type="submit" value="Login" />
->>>>>>> Stashed changes
         <br><br>
     </form>
   </div>
