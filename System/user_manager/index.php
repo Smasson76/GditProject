@@ -2,6 +2,14 @@
 require('../model/database.php');
 require('../model/users_db.php');
 
+$lifetime = 60 * 60 * 24 * 365;             // 1 year in seconds
+session_set_cookie_params($lifetime, '/');
+session_start();
+
+if (!isset($_SESSION['users'])) {
+    $_SESSION['users'] = [];
+}
+
 $action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {
     $action = filter_input(INPUT_GET, 'action');
@@ -21,6 +29,7 @@ else if ($action == 'login') {
         include('../errors/error.php');
     } else { 
         $user = get_user($username);
+        $_SESSION['users'][] = $user;
         include('user_dashboard.php');
     }
 }
