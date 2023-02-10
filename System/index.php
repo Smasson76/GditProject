@@ -1,21 +1,4 @@
-<?php include 'view/header.php'; 
-require('model/database.php');
-require('model/users_db.php');
-
-$action = filter_input(INPUT_POST, 'action');
-
-if ($action == 'login') {
-  $username = filter_input(INPUT_POST, 'username');
-  $password = filter_input(INPUT_POST, 'password');
-  if ($username == NULL || $username == FALSE || $password == NULL || $password == FALSE) {
-      $error = "Invalid data. Check all fields and try again.";
-      include('errors/error.php');
-  } else { 
-      $user = get_user($username, $password);
-      include('user_manager');
-  }
-}
-?>
+<?php include 'view/header.php'; ?>
 
 
 <main>
@@ -42,7 +25,6 @@ if ($action == 'login') {
         
         <label>&nbsp;</label>
         <input type="submit" value="Login" />
-        <!--<li><a href="user_manager">Display Incidents</a></li> -->
         <br><br>
     </form>
   </div>
