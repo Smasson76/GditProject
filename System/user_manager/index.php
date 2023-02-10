@@ -22,6 +22,7 @@ if ($action == 'login_page') {
     $username = filter_input(INPUT_POST, 'username');
     $userFirst = get_user_fname($username);
     $userLast = get_user_lname($username);
+    $userPass = get_user_pass($username);
     if ($username == NULL || $username == FALSE) {
         $error = "Invalid input data. Check all fields and try again.";
         include('../errors/error.php');
@@ -31,10 +32,30 @@ if ($action == 'login_page') {
         $_SESSION['user']['usern'] = $username;
         $_SESSION['user']['user_fname'] = $userFirst;
         $_SESSION['user']['user_lname'] = $userLast;
+        $_SESSION['user']['user_pass'] = $userPass;
         
         include('user_dashboard.php');
     }
 } else if ($action == 'user_dashboard') {
+}
+
+else if ($action == 'update_user') {
+    $username = filter_input(INPUT_POST, 'username');
+    $userFirst = filter_input(INPUT_POST, 'firstName');
+    $userLast = filter_input(INPUT_POST, 'lastName');
+    $userPass = filter_input(INPUT_POST, 'password');
+
+    $_SESSION['user']['user_fname'] = $userFirst;
+    $_SESSION['user']['user_lname'] = $userLast;
+    $_SESSION['user']['user_pass'] = $userPass;
+
+    if ($userFirst == NULL || $userLast == NULL || $userPass == NULL) {
+        $error = "Missing or incorrect data";
+        include('../errors/error.php');
+    } else { 
+        update_user($username, $userFirst, $userLast, $userPass);
+        include('user_dashboard.php');
+    }
 }
 
 ?>
