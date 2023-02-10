@@ -93,8 +93,7 @@ if ($action == 'login') {
         <br>
         <br>
         
-        <label>&nbsp;</label>
-        <input type="submit" value="Login" />
+        <input class="button white pill" type="submit" value="Login" />
         <!--<li><a href="user_manager">Display Incidents</a></li> -->
         <br><br>
     </form>
