@@ -20,7 +20,8 @@ if ($action == 'login_page') {
     include('login_page.php');
 } else if ($action == 'login') {
     $username = filter_input(INPUT_POST, 'username');
-    $user = get_user_fname($username);
+    $userFirst = get_user_fname($username);
+    $userLast = get_user_lname($username);
     if ($username == NULL || $username == FALSE) {
         $error = "Invalid input data. Check all fields and try again.";
         include('../errors/error.php');
@@ -28,7 +29,8 @@ if ($action == 'login_page') {
                 
         $_SESSION['user'] = [];
         $_SESSION['user']['usern'] = $username;
-        $_SESSION['user']['user_fname'] = $user;
+        $_SESSION['user']['user_fname'] = $userFirst;
+        $_SESSION['user']['user_lname'] = $userLast;
         
         include('user_dashboard.php');
     }
