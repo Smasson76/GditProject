@@ -1,6 +1,6 @@
 <head>
     <title>GDIT - ATOaaS</title>
-    <link rel="stylesheet" type="text/css" href="/GditProject/System/main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <main>
     <div class="gdit-home">

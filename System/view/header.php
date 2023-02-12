@@ -4,8 +4,7 @@
 <!-- the head section -->
 <head>
     <title>GDIT - ATOaaS</title>
-    <link rel="stylesheet" type="text/css"
-          href="/GditProject/System/main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <header>
@@ -66,7 +65,7 @@
 		V203z"></path></g>
     </svg>
     <ul>
-        <li><a href="/GDITProject/System/user_manager/user_dashboard.php">View Dashboard</a></li>
+        <li><a href="../user_manager/user_dashboard.php">View Dashboard</a></li>
     </ul>
     </nav>
 </header>

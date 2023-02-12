@@ -79,4 +79,4 @@
   </div>
 </div>
 </section>
-<?php include 'view/footer.php'; ?>
+<?php include '../view/footer.php'; ?>
