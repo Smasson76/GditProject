@@ -96,8 +96,6 @@ body {
   width: calc(var(--logo-w) * .9);
   height: calc(var(--logo-h) * .9);
   display: inline-block;
-  opacity: 0;
-  animation: fadein .3s ease-in-out forwards .3s;
 }
 
 .logo.grey {
