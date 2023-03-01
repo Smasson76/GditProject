@@ -19,12 +19,18 @@ if ($action == 'start_baseline') {
 } else if ($action == 'select_framework') {
     $framework = filter_input(INPUT_POST, 'framework_id');
     $impact = filter_input(INPUT_POST, 'impact');
+    $hide = $_POST['hide_unselected'];
+    if (isset($hide)) {
+        $hide = true;
+    } else {
+        $hide = false;
+    }
     if ($framework == NULL || $framework == FALSE ||
         $impact == NULL || $impact == FALSE) {
         $error = "Missing or incorrect framework or impact level.";
         include('../errors/error.php');
     } else { 
-        $controls = get_controls($framework, $impact);
+        $controls = get_controls($framework, $impact, $hide);
         include('ctrl_select.php');
     }
 }

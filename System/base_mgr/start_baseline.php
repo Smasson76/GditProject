@@ -42,7 +42,13 @@ include '../view/header-nav.php';
             <option value="mod">Moderate</option>
             <option value="high">High</option>
         </select>
+
+        <br><br>
         
+        <input type="checkbox" name="hide_unselected">
+        <label for="hide_unselected">Hide Unselected Controls</label>
+        
+
         <br><br><br>
 
         <input class="button secondary pill" type="submit" value="Start Baseline" />

@@ -26,10 +26,15 @@
 //     return $bl_data;
 // }
 
-function get_controls($framework, $impact) {
+function get_controls($framework, $impact, $hide) {
     global $db;
-    $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
+    if($hide == false) {
+        $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
                 ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id';
+    } else {
+        $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
+                ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id WHERE ctrl_base_'. $impact .'=\'x\'';
+    }
     $statement = $db->prepare($sql);
     $statement->execute();
     $controls = $statement->fetchAll();
