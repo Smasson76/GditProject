@@ -33,7 +33,8 @@ function get_controls($framework, $impact, $hide) {
                 ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id';
     } else {
         $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
-                ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id WHERE ctrl_base_'. $impact .'=\'x\'';
+                ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id WHERE ctrl_base_'
+                . $impact .'=\'x\'';
     }
     $statement = $db->prepare($sql);
     $statement->execute();
