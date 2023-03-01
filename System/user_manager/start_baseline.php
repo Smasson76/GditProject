@@ -1,6 +1,10 @@
 <?php
 session_start();
-include '../view/header.php'; ?>
+include '../view/header.php'; 
+include '../view/header-nav.php';
+
+?>
+
 <main>
 
     <form action="index.php" method="post" id="view_baseline_form">
@@ -40,7 +44,7 @@ include '../view/header.php'; ?>
         
         <br><br><br>
 
-        <input type="submit" value="Start Baseline" />
+        <input class="button secondary pill" type="submit" value="Start Baseline" />
         <br>
     </form>
 </section>

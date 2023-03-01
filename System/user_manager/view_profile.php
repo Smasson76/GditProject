@@ -3,12 +3,13 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 include '../view/header.php'; 
+include '../view/header-nav.php';
     
 ?>
 <main>
-<h1>Edit Contact Information</h1>
+<h2>Edit Contact Information</h2>
 <br><br>
-    <form action="index.php" method="post" id="view_user_form">
+    <form class="general-form" action="index.php" method="post" id="view_user_form">
         <input type="hidden" name="action" value="update_user">
 
         <label>ID: <?php echo $_SESSION['user']['usern'] ?></label>
@@ -28,7 +29,7 @@ include '../view/header.php';
         <br><br>
 
         <label>&nbsp;</label>
-        <input type="submit" value="Update Information" />
+        <input class="button secondary pill" type="submit" value="Update Information" />
         <br>
     </form>
 </section>

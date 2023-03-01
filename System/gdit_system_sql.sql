@@ -5,7 +5,7 @@ DROP DATABASE IF EXISTS gdit_system_sql;
 CREATE DATABASE gdit_system_sql;
 USE gdit_system_sql;
 
--- GDIT Uusers
+-- GDIT Users
 CREATE TABLE users (
     userID int NOT NULL AUTO_INCREMENT,
     firstName varchar(50) NOT NULL,
@@ -30,13 +30,13 @@ CREATE TABLE clients (
 
 -- Populate tables
 INSERT INTO users VALUES 
-(1, 'Skylar', 'Masson', 'smasson324986', 'password1'), 
-(2, 'Aaron', 'Williams', 'awilliams299103', 'password1'),
-(3, 'Brandon', 'Heptinstall', 'bheptinstall123289','password1'),
-(4, 'Parker', 'Blanchard', 'pblanchard215922','password1'),
-(5, 'Raine', 'Wyandon', 'jwyandon247846','password1'),
-(6, 'Michael', 'Shamblin', 'mshamblin254657','password1'),
-(7, 'Begona', 'Perez', 'perezmirab','password1');
+(1, 'Skylar', 'Masson', 'smasson324986', 'password1'),
+(3, 'Aaron', 'Williams', 'awilliams299103', 'password1'),
+(4, 'Brandon', 'Heptinstall', 'bheptinstall123289','password1'),
+(5, 'Parker', 'Blanchard', 'pblanchard215922','password1'),
+(6, 'Raine', 'Wyandon', 'jwyandon247846','password1'),
+(7, 'Michael', 'Shamblin', 'mshamblin254657','password1'),
+(8, 'Begona', 'Perez', 'perezmirab','password1');
 
 -- Create admin
 CREATE USER IF NOT EXISTS ts_user@localhost

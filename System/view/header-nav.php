@@ -1,10 +1,9 @@
-<?php include ('../view/header.php');?>
-<main>
-<div class="split left brand">
-  <div class="centered">
-  <svg class="logo white" id="" version="1.1" x="0px" y="0px" viewBox="0 0 1671.4 228" xml:space="preserve">
-	<title>General Dynamics Information Technology</title>
-	<g> <path d="M1647.4,98h-71.8V81.4h64.2c3.6,0,7.5-1,7.5-5.3c0-4.4-3.8-5.3-7.5-5.3h-43.3
+<header>
+    <nav>
+    <svg class="lhead" id="" version="1.1" x="0px" y="0px" viewBox="0 0 1671.4 228" xml:space="preserve">
+        <title>General Dynamics Information Technology</title>
+        <g>
+        <path d="M1647.4,98h-71.8V81.4h64.2c3.6,0,7.5-1,7.5-5.3c0-4.4-3.8-5.3-7.5-5.3h-43.3
 		c-12.4,0-22.2-9.9-22.2-22.4c0-12.5,9.7-22.3,22.2-22.3h72.4v16.6h-64.7c-3.3,0-6.1,1.3-6.1,4.9c0,3.6,3.1,4.9,6.1,4.9h43.2
 		c13.2,0,24,9.2,24,22.8C1671.4,88.9,1660.7,98,1647.4,98L1647.4,98z M1501.3,98c-20.9,0-38.6-14.2-38.6-36c0-21.9,17.6-36,38.6-36
 		h59.1v17.3h-52.2c-11.4,0-21.2,6.5-21.2,18.8c0,12.2,9.9,18.7,21.2,18.7h52.2V98H1501.3z M1426.2,98h23.8V26h-23.8V98z M1387.8,98
@@ -54,27 +53,9 @@
 		v-5.8h10.6v-11.3c0-9.1,3.7-13.2,12.7-13.2c2,0,4.1,0.7,6,1.2v5.1c-1.3-0.2-2.6-0.4-3.9-0.4c-8.6,0-8.8,4.3-8.5,11.9v6.7h12v5.8
 		h-12V203H101.4z M44.6,203h-6.3v-40.9c0-4.1-0.3-8.3-0.5-11.9h6.5l0.3,7.8l0.2,0.2c3.7-6.5,9.7-9.6,16.5-9.6
 		c17.3,0,18.6,15.3,18.6,21.4V203h-6.3v-34.1c0-9.2-5.3-14.5-13.9-14.5c-10.4,0-15.2,8.7-15.2,18.2V203z M11.9,203h6.8v-76.3h-6.8
-		V203z"></path></g></svg>
-  </div>
-</div>
-
-<div class="split right">
-  <div class="centered">
-    <form class="login-form" action="index.php" method="post" id="login_form">
-        <input type="hidden" name="action" value="login">
-
-        <label class="sr-only">Username:</label>
-        <input type="text" name="username" placeholder="username"/>
-        <br>
-
-        <label class="sr-only">Password:</label>
-        <input type="password" name="password" placeholder="password" />
-        <br>
-        <br>
-        
-        <input class="button primary pill" type="submit" value="Login" />
-        <br><br>
-    </form>
-  </div>
-</div>
-</section>
+		V203z"></path></g>
+    </svg>
+        <a href="../user_manager/user_dashboard.php">View Dashboard</a>
+		<a href="../index.php">Logout</a>
+    </nav>
+</header>

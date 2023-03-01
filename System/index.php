@@ -1,7 +1,5 @@
-<head>
-    <title>GDIT - ATOaaS</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-</head>
+<?php include ('view/header-ind.php');?>
+
 <main>
     <div class="gdit-home">
     <svg class="logo grey" id="" version="1.1" x="0px" y="0px" viewBox="0 0 1671.4 228" xml:space="preserve">
@@ -61,8 +59,8 @@
     </svg>
   
     <ul>
-        <li><a href="user_manager" class="button gold pill">Log in</a></li>
-        <li><a href="" class="button white pill">Sign up</a></li>
+        <li><a href="user_manager" class="button primary pill">Log in</a></li>
+        <li><a href="" class="button secondary pill">Sign up</a></li>
     </ul>    
     </div>
 </section>
