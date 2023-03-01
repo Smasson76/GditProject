@@ -19,12 +19,13 @@ if ($action == 'start_baseline') {
 } else if ($action == 'select_framework') {
     $framework = filter_input(INPUT_POST, 'framework_id');
     $impact = filter_input(INPUT_POST, 'impact');
-    $hide = $_POST['hide_unselected'];
-    if (isset($hide)) {
-        $hide = true;
+
+    if (isset($_POST['hide_unselected'])) {
+        $hide = TRUE;
     } else {
-        $hide = false;
+        $hide = FALSE;
     }
+
     if ($framework == NULL || $framework == FALSE ||
         $impact == NULL || $impact == FALSE) {
         $error = "Missing or incorrect framework or impact level.";

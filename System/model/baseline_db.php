@@ -28,7 +28,7 @@
 
 function get_controls($framework, $impact, $hide) {
     global $db;
-    if($hide == false) {
+    if($hide == FALSE) {
         $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
                 ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id';
     } else {
