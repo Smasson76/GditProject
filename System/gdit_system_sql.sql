@@ -45,12 +45,3 @@ IDENTIFIED BY 'pa55word';
 GRANT SELECT, INSERT, UPDATE, DELETE
 ON *
 TO ts_user@localhost;
-
-/* 
--- Create User Roles
-CREATE ROLE 'gdit_admin', 'gdit_engineer', 'gdit_isso', 'gdit_client';
-GRANT ALL ON gdit_system_sql.* TO 'gdit_admin';
-GRANT ALL ON gdit_system_sql.* TO 'gdit_engineer';
-GRANT SELECT, INSERT, UPDATE ON gdit_system_sql.* TO 'gdit_isso';
-GRANT SELECT ON gdit_system_sql.* TO 'gdit_client';
-*/
