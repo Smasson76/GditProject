@@ -17,20 +17,13 @@ include '../view/header-nav.php';
         <select name="framework_id" id="ato">
         <optgroup label="NIST">
             <option value="nist80053oscal">NIST SP 800-53</option>
+            <option value="nist80053oscal">Add NIST 800-171</option>
         </optgroup>
         <optgroup label="FISMA">
-            <option value="blank">NIST SP 800-16 - Training</option>
-            <option value="blank">NIST SP 800-18 R1 - Guide for developing security plans for federal systems</option>
-            <option value="blank">NIST SP 800-30 - Risk management guide for information technology systems</option>
-            <option value="blank">NIST SP 800-134 R1 - Contingency planning guide</option>
-            <option value="blank">NIST SP 800-53 Rev 4</option>
+            <option value="blank">-- add more later</option>
         </optgroup>
         <optgroup label="FedRAMP">
-            <option value="blank">NIST SP 800-16 - Training</option>
-            <option value="blank">NIST SP 800-18 R1 - Guide for developing security plans for federal systems</option>
-            <option value="blank">NIST SP 800-30 - Risk management guide for information technology systems</option>
-            <option value="blank">NIST SP 800-134 R1 - Contingency planning guide</option>
-            <option value="blank">NIST SP 800-53 Rev 4</option>
+            <option value="blank">FEDRAMP CMMC</option>
         </optgroup>
         </select>
 
