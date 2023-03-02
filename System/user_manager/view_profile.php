@@ -16,12 +16,16 @@ include '../view/header-nav.php';
         <input type="hidden" name="username" value="<?php echo $_SESSION['user']['usern'] ?>"/>
         <br><br>
 
-        <label>First Name:</label>
-        <input type="text" name="firstName" value="<?php echo $_SESSION['user']['user_fname'] ?>"/>
+        <label>First Name: <?php echo $_SESSION['user']['user_fname'] ?></label>
+        <input type="hidden" name="firstName" value="<?php echo $_SESSION['user']['user_fname'] ?>"/>
         <br><br>
         
-        <label>Last Name:</label>
-        <input type="text" name="lastName" value="<?php echo $_SESSION['user']['user_lname'] ?>"/>
+        <label>Last Name: <?php echo $_SESSION['user']['user_lname'] ?></label>
+        <input type="hidden" name="lastName" value="<?php echo $_SESSION['user']['user_lname'] ?>"/>
+        <br><br>
+
+        <label>Email: </label>
+        <input type="text" name="email" value="<?php echo $_SESSION['user']['user_email'] ?>"/>
         <br><br>
 
         <label>Password: </label>

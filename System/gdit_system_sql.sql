@@ -12,6 +12,9 @@ CREATE TABLE users (
     lastName varchar(50) NOT NULL,
     username varchar(50) NOT NULL,
     password varchar(20) NOT NULL,
+    email varchar(50) NOT NULL,
+    phone varchar(12) NULL,
+    address varchar(50) NULL,
     PRIMARY KEY (userID)
 );
 
@@ -30,13 +33,13 @@ CREATE TABLE clients (
 
 -- Populate tables
 INSERT INTO users VALUES 
-(1, 'Skylar', 'Masson', 'smasson324986', 'password1'),
-(3, 'Aaron', 'Williams', 'awilliams299103', 'password1'),
-(4, 'Brandon', 'Heptinstall', 'bheptinstall123289','password1'),
-(5, 'Parker', 'Blanchard', 'pblanchard215922','password1'),
-(6, 'Raine', 'Wyandon', 'jwyandon247846','password1'),
-(7, 'Michael', 'Shamblin', 'mshamblin254657','password1'),
-(8, 'Begona', 'Perez', 'perezmirab','password1');
+(1, 'Skylar', 'Masson', 'smasson324986', 'password1', 'smasson324986@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(3, 'Aaron', 'Williams', 'awilliams299103', 'password1', 'awilliams299103@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(4, 'Brandon', 'Heptinstall', 'bheptinstall123289','password1', 'bheptinstall123289@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(5, 'Parker', 'Blanchard', 'pblanchard215922','password1', 'pblanchard215922@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(6, 'Raine', 'Wyandon', 'jwyandon247846','password1', 'jwyandon247846@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(7, 'Michael', 'Shamblin', 'mshamblin254657','password1', 'mshamblin254657@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(8, 'Begona', 'Perez', 'perezmirab','password1', 'perezmirab@nsula.edu', '318-000-0000', '175 Sam Sibley Dr');
 
 -- Create admin
 CREATE USER IF NOT EXISTS ts_user@localhost
