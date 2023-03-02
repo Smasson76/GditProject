@@ -59,8 +59,10 @@
     </svg>
   
     <ul>
-        <li><a href="user_manager" class="button primary pill">Log in</a></li>
-        <li><a href="" class="button secondary pill">Sign up</a></li>
+		<div class="login-page-buttons">
+			<li><a href="user_manager" class="button primary pill">Log in</a></li>
+			<li><a href="" class="button secondary pill">Sign up</a></li>
+		</div>
     </ul>    
     </div>
 </section>

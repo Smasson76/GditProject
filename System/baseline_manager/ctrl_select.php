@@ -25,7 +25,7 @@ include '../view/header-nav.php';
                     $check = 'checked';
                     } else { 
                         $check = '';
-                        } ?>
+                    } ?>
             <tr>
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
