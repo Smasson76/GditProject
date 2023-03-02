@@ -547,3 +547,19 @@ select {
     transform: translateX(0px);
   }
 }
+
+
+
+
+/* THIS IS THE BUTTON USED FOR CTRL_SELECT PAGE.
+   CAN BE DELETED ONCE AARON CHANGES IT. */
+.block {
+  display: block;
+  width: 100%;
+  border: 1px round;
+  background-color: #ffa51f;
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+}
