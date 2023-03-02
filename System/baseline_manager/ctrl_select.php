@@ -10,7 +10,7 @@ include '../view/header-nav.php';
 <main>
 
     <h2>Framework Control Selection</h2>
-    <form action="index.php" method="post" id="view_implementation_form">
+        <br><br>
         <table>
             <tr>
                 <th>Select</th>
@@ -43,9 +43,6 @@ include '../view/header-nav.php';
                     <td><?php echo $control['ctrl_base_high']; ?></td>
                 </tr>
             <?php endforeach; ?>
-            
         </table>
-        <input class="block" type="submit" value="Start Baseline" />
-    </form>
 </section>
 <?php include '../view/footer.php'; ?>

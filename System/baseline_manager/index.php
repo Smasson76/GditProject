@@ -13,7 +13,6 @@ if ($action == NULL) {
         $action = 'start_baseline';
     }
 }
-
 if ($action == 'start_baseline') {
     include('start_baseline.php');
 } else if ($action == 'select_framework') {
@@ -34,6 +33,10 @@ if ($action == 'start_baseline') {
         $controls = get_controls($framework, $impact, $hide);
         include('ctrl_select.php');
     }
+} else if ($action == 'select_ctrl') {
+    $controls_selected = array();
+    $ac1 = isset($_POST['ac1']);
+    var_dump($controls_selected[0]); die;
 }
 
 
