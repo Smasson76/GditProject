@@ -28,6 +28,14 @@ include '../view/header-nav.php';
         <input type="text" name="email" value="<?php echo $_SESSION['user']['user_email'] ?>"/>
         <br><br>
 
+        <label>Phone: </label>
+        <input type="text" name="phone" value="<?php echo $_SESSION['user']['user_phone'] ?>"/>
+        <br><br>
+
+        <label>Address: </label>
+        <input type="text" name="address" value="<?php echo $_SESSION['user']['user_address'] ?>"/>
+        <br><br>
+
         <label>Password: </label>
         <input type="password" name="password" value="<?php echo $_SESSION['user']['user_pass'] ?>"/>
         <br><br>

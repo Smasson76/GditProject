@@ -65,15 +65,43 @@ function get_user_email($username) {
     return $userdata['email'];
 }
 
+// Get the selected user's phone
+function get_user_phone($username) {
+    global $db;
+    $query = 'SELECT phone FROM users
+              WHERE username = :username';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':username', $username);
+    $statement->execute();
+    $userdata = $statement->fetch();
+    $statement->closeCursor();
+    return $userdata['phone'];
+}
+
+// Get the selected user's address
+function get_user_address($username) {
+    global $db;
+    $query = 'SELECT address FROM users
+              WHERE username = :username';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':username', $username);
+    $statement->execute();
+    $userdata = $statement->fetch();
+    $statement->closeCursor();
+    return $userdata['address'];
+}
+
 
 //Update user with any credentials that needs to be changed
-function update_user($username, $userFirst, $userLast, $userPass, $userEmail) {
+function update_user($username, $userFirst, $userLast, $userPass, $userEmail, $userPhone, $userAddress) {
     global $db;
     $query = 'UPDATE users
               SET firstName = :userFirst,
               lastName = :userLast,
               password = :userPass,
-              email = :userEmail
+              email = :userEmail,
+              phone = :userPhone,
+              address = :userAddress
               WHERE username = :username';
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
@@ -81,6 +109,8 @@ function update_user($username, $userFirst, $userLast, $userPass, $userEmail) {
     $statement->bindValue(':userLast', $userLast);
     $statement->bindValue(':userPass', $userPass);
     $statement->bindValue(':userEmail', $userEmail);
+    $statement->bindValue(':userPhone', $userPhone);
+    $statement->bindValue(':userAddress', $userAddress);
     $statement->execute();
     $statement->closeCursor();
 }
