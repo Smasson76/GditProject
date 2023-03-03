@@ -13,6 +13,8 @@ if ($action == NULL) {
         $action = 'start_baseline';
     }
 }
+
+
 if ($action == 'start_baseline') {
     include('start_baseline.php');
 } else if ($action == 'select_framework') {
@@ -34,9 +36,10 @@ if ($action == 'start_baseline') {
         include('ctrl_select.php');
     }
 } else if ($action == 'select_ctrl') {
-    $controls_selected = array();
-    $ac1 = isset($_POST['ac1']);
-    var_dump($controls_selected[0]); die;
+    $ctrl_id = filter_input(INPUT_POST, 'ctrl_id');
+    $ctrl_name = filter_input(INPUT_POST, 'ctrl_name');
+
+    //save_baseline($ctrl_id, $ctrl_name);
 }
 
 

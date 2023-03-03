@@ -8,7 +8,6 @@ include '../view/header-nav.php';
 ?>
 
 <main>
-
     <h2>Framework Control Selection</h2>
         <br><br>
         <table>
@@ -27,15 +26,12 @@ include '../view/header-nav.php';
                         $check = '';
                     } ?>
                 <tr>
-                    <td><form action="." method="post">
-                        <input type="hidden" name="action"
-                            value="select_ctrl">
-                        <input type="hidden" name="ctrl_id"
-                            value="<?php echo $control['ctrl_id']; ?>">
-                        <input type="hidden" name="ctrl_name"
-                            value="<?php echo $control['ctrl_name']; ?>">
+                    <td><form action="index.php" method="post">
+                        <input type="hidden" name="action" value="select_ctrl">
+                        <input type="hidden" name="ctrl_id" value="<?php echo $control['ctrl_id']; ?>">
+                        <input type="hidden" name="ctrl_name" value="<?php echo $control['ctrl_name']; ?>">
                         <input type="checkbox" value="Select" <?php echo $check; ?>>
-                    </form></td>
+                    </td>
                     <td><?php echo $control['ctrl_id']; ?></td>
                     <td><?php echo $control['ctrl_name']; ?></td>
                     <td><?php echo $control['ctrl_base_low']; ?></td>
@@ -45,7 +41,6 @@ include '../view/header-nav.php';
             <?php endforeach; ?>
             <input class="block" type="submit" value="Implement Controls" />
         </table>
-        
     </form>
-</section>
+</section> 
 <?php include '../view/footer.php'; ?>

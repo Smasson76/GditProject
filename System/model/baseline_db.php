@@ -69,4 +69,15 @@ function get_controls($framework, $impact, $hide) {
 //     return $bl_data;
 // }
 
+function save_baseline() {
+    global $db;
+    $query = '';
+    $statement = $db->prepare($sql);
+    $statement->execute();
+    $controls = $statement->fetchAll();
+    $statement->closeCursor();
+    return $controls;
+}
+
+
 ?>

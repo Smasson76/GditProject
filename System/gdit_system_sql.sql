@@ -33,9 +33,6 @@ CREATE TABLE savedbaselines (
   clientID          INT            NOT NULL,
   controlID         VARCHAR(10)    NOT NULL,
   controlName       VARCHAR(50)    NOT NULL,
-  controlLow        VARCHAR(1),
-  controlMod        VARCHAR(1),
-  controlHigh       VARCHAR(1),
   PRIMARY KEY (controlID),
   FOREIGN KEY (clientID) REFERENCES clients(clientID)
 );
