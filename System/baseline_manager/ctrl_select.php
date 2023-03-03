@@ -23,9 +23,9 @@ include '../view/header-nav.php';
             <?php foreach($controls as $control) : 
                     if($control['ctrl_base_low'] == "x" || $control['ctrl_base_mod'] == "x" || $control['ctrl_base_high'] == "x") { 
                         $check = 'checked';
-                        } else { 
-                            $check = '';
-                        } ?>
+                    } else { 
+                        $check = '';
+                    } ?>
                 <tr>
                     <td><form action="." method="post">
                         <input type="hidden" name="action"

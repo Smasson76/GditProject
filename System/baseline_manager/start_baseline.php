@@ -15,16 +15,7 @@ include '../view/header-nav.php';
         <br><br>
         <label for="framework_id"><h3>Choose a Framework:</h3></label>
         <select name="framework_id" id="ato">
-        <optgroup label="NIST">
             <option value="nist80053oscal">NIST SP 800-53</option>
-            <option value="nist80053oscal">NIST 800-171</option>
-        </optgroup>
-        <optgroup label="FISMA">
-            <option value="blank">-- add more later</option>
-        </optgroup>
-        <optgroup label="FedRAMP">
-            <option value="blank">FEDRAMP CMMC</option>
-        </optgroup>
         </select>
 
         <br><br>

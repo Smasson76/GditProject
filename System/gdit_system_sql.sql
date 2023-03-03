@@ -23,15 +23,11 @@ CREATE TABLE clients (
   clientID        INT            NOT NULL   AUTO_INCREMENT,
   emailAddress      VARCHAR(255)   NOT NULL,
   password          VARCHAR(60)    NOT NULL,
-  firstName         VARCHAR(60)    NOT NULL,
-  lastName          VARCHAR(60)    NOT NULL,
-  shipAddressID     INT                       DEFAULT NULL,
-  billingAddressID  INT                       DEFAULT NULL,  
   PRIMARY KEY (clientID),
   UNIQUE INDEX emailAddress (emailAddress)
 );
 
--- Populate tables
+-- Populate users table
 INSERT INTO users VALUES 
 (1, 'Skylar', 'Masson', 'smasson324986', 'password1', 'smasson324986@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
 (3, 'Aaron', 'Williams', 'awilliams299103', 'password1', 'awilliams299103@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
@@ -40,6 +36,12 @@ INSERT INTO users VALUES
 (6, 'Raine', 'Wyandon', 'jwyandon247846','password1', 'jwyandon247846@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
 (7, 'Michael', 'Shamblin', 'mshamblin254657','password1', 'mshamblin254657@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
 (8, 'Begona', 'Perez', 'perezmirab','password1', 'perezmirab@nsula.edu', '318-000-0000', '175 Sam Sibley Dr');
+
+-- Populate clients
+INSERT INTO users VALUES 
+(1, 'Cisco', 'cisco@gmail.com', 'password1'),
+(2, 'Oracle', 'oracle@gmail.com', 'password1');
+
 
 -- Create admin
 CREATE USER IF NOT EXISTS ts_user@localhost
