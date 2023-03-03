@@ -43,6 +43,9 @@ include '../view/header-nav.php';
                     <td><?php echo $control['ctrl_base_high']; ?></td>
                 </tr>
             <?php endforeach; ?>
+            <input class="block" type="submit" value="Implement Controls" />
         </table>
+        
+    </form>
 </section>
 <?php include '../view/footer.php'; ?>
