@@ -17,14 +17,27 @@ CREATE TABLE users (
     address varchar(50) NULL,
     PRIMARY KEY (userID)
 );
-
+ 
 -- GDIT Clients
 CREATE TABLE clients (
   clientID        INT            NOT NULL   AUTO_INCREMENT,
+  clientName        VARCHAR(50)    NOT NULL,
   emailAddress      VARCHAR(255)   NOT NULL,
   password          VARCHAR(60)    NOT NULL,
   PRIMARY KEY (clientID),
   UNIQUE INDEX emailAddress (emailAddress)
+);
+
+-- GDIT SavedBaselines
+CREATE TABLE savedbaselines (
+  clientID          INT            NOT NULL,
+  controlID         VARCHAR(10)    NOT NULL,
+  controlName       VARCHAR(50)    NOT NULL,
+  controlLow        VARCHAR(1),
+  controlMod        VARCHAR(1),
+  controlHigh       VARCHAR(1),
+  PRIMARY KEY (controlID),
+  FOREIGN KEY (clientID) REFERENCES clients(clientID)
 );
 
 -- Populate users table
@@ -38,7 +51,7 @@ INSERT INTO users VALUES
 (8, 'Begona', 'Perez', 'perezmirab','password1', 'perezmirab@nsula.edu', '318-000-0000', '175 Sam Sibley Dr');
 
 -- Populate clients
-INSERT INTO users VALUES 
+INSERT INTO clients VALUES 
 (1, 'Cisco', 'cisco@gmail.com', 'password1'),
 (2, 'Oracle', 'oracle@gmail.com', 'password1');
 
