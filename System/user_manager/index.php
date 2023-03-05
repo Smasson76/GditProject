@@ -20,13 +20,34 @@ if ($action == 'login_page') {
     include('login_page.php');
 } else if ($action == 'login') {
     $username = filter_input(INPUT_POST, 'username');
+    $password = filter_input(INPUT_POST, 'password');
+    if ($username == NULL || $username == FALSE
+        || $password == NULL || $password == FALSE) {
+        $error = "Invalid input data. Check all fields and try again.";
+        include('../errors/error.php');
+    } else { 
+        $verify = auth_user($username, $password);
+        log_it($username); log_it($password);
+        log_it($verify);
+        include('user_dashboard.php');
+    }
+} else if ($action == 'user_dashboard') {
+}
+
+/*
+
+if ($action == 'login_page') {
+    include('login_page.php');
+} else if ($action == 'login') {
+    $username = filter_input(INPUT_POST, 'username');
     $userFirst = get_user_fname($username);
     $userLast = get_user_lname($username);
     $userPass = get_user_pass($username);
     $userEmail = get_user_email($username);
     $userPhone = get_user_phone($username);
     $userAddress = get_user_address($username);
-    if ($username == NULL || $username == FALSE) {
+    if ($username == NULL || $username == FALSE
+        || $userPass == NULL || $userPass == FALSE) {
         $error = "Invalid input data. Check all fields and try again.";
         include('../errors/error.php');
     } else { 
@@ -44,6 +65,8 @@ if ($action == 'login_page') {
     }
 } else if ($action == 'user_dashboard') {
 }
+
+*/
 
 else if ($action == 'update_user') {
     $username = filter_input(INPUT_POST, 'username');

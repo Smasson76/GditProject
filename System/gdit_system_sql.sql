@@ -5,13 +5,21 @@ DROP DATABASE IF EXISTS gdit_system_sql;
 CREATE DATABASE gdit_system_sql;
 USE gdit_system_sql;
 
+-- GDIT Installation
+CREATE TABLE gdit_sys_install (
+    option_id int NOT NULL AUTO_INCREMENT,
+    option_name varchar(200) NOT NULL,
+    option_value longtext NOT NULL,
+    PRIMARY KEY (option_id)
+);
+
 -- GDIT Users
 CREATE TABLE users (
     userID int NOT NULL AUTO_INCREMENT,
     firstName varchar(50) NOT NULL,
     lastName varchar(50) NOT NULL,
     username varchar(50) NOT NULL,
-    password varchar(20) NOT NULL,
+    password varchar(255) NOT NULL,
     email varchar(50) NOT NULL,
     phone varchar(12) NULL,
     address varchar(50) NULL,
@@ -37,6 +45,13 @@ CREATE TABLE savedbaselines (
   FOREIGN KEY (clientID) REFERENCES clients(clientID)
 );
 
+-- Populate Installation table
+INSERT INTO gdit_sys_install VALUES
+(NULL,'gdit_install', '0'),
+(NULL,'first_run', '0'),
+(NULL,'bcryp_cost', '12'),
+(NULL,'serv_bcryp_cost', '');
+
 -- Populate users table
 INSERT INTO users VALUES 
 (1, 'Skylar', 'Masson', 'smasson324986', 'password1', 'smasson324986@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
@@ -51,7 +66,6 @@ INSERT INTO users VALUES
 INSERT INTO clients VALUES 
 (1, 'Cisco', 'cisco@gmail.com', 'password1'),
 (2, 'Oracle', 'oracle@gmail.com', 'password1');
-
 
 -- Create admin
 CREATE USER IF NOT EXISTS ts_user@localhost

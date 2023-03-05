@@ -52,6 +52,23 @@ function get_user_pass($username) {
     return $userdata['password'];
 }
 
+// Authenticate the user
+function auth_user($user, $pass) {
+    global $db;
+    $q = 'SELECT username, password FROM users WHERE username = :username';
+    $statement = $db->prepare($q);
+    $statement->bindValue(':username', $user);
+    $statement->execute();
+    $u = $statement->fetch();
+    $statement->closeCursor();
+    $hash = $u['password'];
+    $arr = password_get_info($hash);
+    $password = $pass;
+    log_it($arr); log_it($hash);
+    $verify = password_verify($password, $hash);
+    return $verify;
+}
+
 // Get the selected user's email
 function get_user_email($username) {
     global $db;
