@@ -19,8 +19,11 @@ include '../view/header-nav.php';
                 <th>Moderate</th>
                 <th>High</th>
             </tr>
-            <?php foreach($controls as $control) : 
-                    if($control['ctrl_base_low'] == "x" || $control['ctrl_base_mod'] == "x" || $control['ctrl_base_high'] == "x") { 
+            <?php 
+            $ctrl_col = "ctrl_base_".$impact;
+            
+            foreach($controls as $control) : 
+                    if($control[$ctrl_col] == "x") { 
                         $check = 'checked';
                     } else { 
                         $check = '';

@@ -14,7 +14,6 @@ if ($action == NULL) {
     }
 }
 
-
 if ($action == 'start_baseline') {
     include('start_baseline.php');
 } else if ($action == 'select_framework') {
@@ -33,6 +32,7 @@ if ($action == 'start_baseline') {
         include('../errors/error.php');
     } else { 
         $controls = get_controls($framework, $impact, $hide);
+        //TODO: Change to header
         include('ctrl_select.php');
     }
 } else if ($action == 'select_ctrl') {
