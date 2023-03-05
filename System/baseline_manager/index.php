@@ -31,9 +31,10 @@ if ($action == 'start_baseline') {
         $error = "Missing or incorrect framework or impact level.";
         include('../errors/error.php');
     } else { 
+        // TODO: Change to header
         $controls = get_controls($framework, $impact, $hide);
-        //TODO: Change to header
         include('ctrl_select.php');
+        // header("Location: .");
     }
 } else if ($action == 'select_ctrl') {
     $ctrl_id = filter_input(INPUT_POST, 'ctrl_id');
