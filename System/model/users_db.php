@@ -61,10 +61,9 @@ function auth_user($user, $pass) {
     $statement->execute();
     $u = $statement->fetch();
     $statement->closeCursor();
-    $hash = $u['password'];
+    $hash = trim($u['password']);
     $arr = password_get_info($hash);
     $password = $pass;
-    log_it($arr); log_it($hash);
     $verify = password_verify($password, $hash);
     return $verify;
 }
@@ -108,9 +107,9 @@ function get_user_address($username) {
     return $userdata['address'];
 }
 
-
 //Update user with any credentials that needs to be changed
 function update_user($username, $userFirst, $userLast, $userPass, $userEmail, $userPhone, $userAddress) {
+    $userPass = hash_password($userPass);
     global $db;
     $query = 'UPDATE users
               SET firstName = :userFirst,

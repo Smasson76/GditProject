@@ -37,7 +37,7 @@ include '../view/header-nav.php';
         <br><br>
 
         <label>Password: </label>
-        <input type="password" name="password" value="<?php echo $_SESSION['user']['user_pass'] ?>"/>
+        <input type="password" name="password" value=""/>
         <br><br>
 
         <label>&nbsp;</label>

@@ -27,12 +27,58 @@ if ($action == 'login_page') {
         include('../errors/error.php');
     } else { 
         $verify = auth_user($username, $password);
-        log_it($username); log_it($password);
-        log_it($verify);
-        include('user_dashboard.php');
+        if ($verify) {
+            $userFirst = get_user_fname($username);
+            $userLast = get_user_lname($username);
+            $userEmail = get_user_email($username);
+            $userPhone = get_user_phone($username);
+            $userAddress = get_user_address($username);
+            $_SESSION['user'] = [];
+            $_SESSION['user']['usern'] = $username;
+            $_SESSION['user']['user_fname'] = $userFirst;
+            $_SESSION['user']['user_lname'] = $userLast;
+            $_SESSION['user']['user_pass'] = $password;
+            $_SESSION['user']['user_email'] = $userEmail;
+            $_SESSION['user']['user_phone'] = $userPhone;
+            $_SESSION['user']['user_address'] = $userAddress;
+            include('user_dashboard.php');
+        } else {
+            $error = "The password you entered was incorrect. Please try again.";
+            include('../errors/error.php');
+        }
     }
 } else if ($action == 'user_dashboard') {
 }
+
+else if ($action == 'update_user') {
+    $username = filter_input(INPUT_POST, 'username');
+    $userFirst = filter_input(INPUT_POST, 'firstName');
+    $userLast = filter_input(INPUT_POST, 'lastName');
+    $userPass = filter_input(INPUT_POST, 'password');
+    $userEmail = filter_input(INPUT_POST, 'email');
+    $userPhone = filter_input(INPUT_POST, 'phone');
+    $userAddress = filter_input(INPUT_POST, 'address');
+
+    $_SESSION['user'] = [];
+    $_SESSION['user']['usern'] = $username;
+    $_SESSION['user']['user_fname'] = $userFirst;
+    $_SESSION['user']['user_lname'] = $userLast;
+    $_SESSION['user']['user_pass'] = $userPass;
+    $_SESSION['user']['user_email'] = $userEmail;
+    $_SESSION['user']['user_phone'] = $userPhone;
+    $_SESSION['user']['user_address'] = $userAddress;
+
+    if ($userPass == NULL || $userEmail == NULL || $userPhone == NULL || $userAddress == NULL) {
+        $error = "Missing or incorrect data";
+        include('../errors/error.php');
+    } else { 
+        update_user($username, $userFirst, $userLast, $userPass, $userEmail, $userPhone, $userAddress);
+        include('user_dashboard.php');
+    }
+}
+
+
+
 
 /*
 
@@ -68,30 +114,4 @@ if ($action == 'login_page') {
 
 */
 
-else if ($action == 'update_user') {
-    $username = filter_input(INPUT_POST, 'username');
-    $userFirst = filter_input(INPUT_POST, 'firstName');
-    $userLast = filter_input(INPUT_POST, 'lastName');
-    $userPass = filter_input(INPUT_POST, 'password');
-    $userEmail = filter_input(INPUT_POST, 'email');
-    $userPhone = filter_input(INPUT_POST, 'phone');
-    $userAddress = filter_input(INPUT_POST, 'address');
-
-    $_SESSION['user'] = [];
-    $_SESSION['user']['usern'] = $username;
-    $_SESSION['user']['user_fname'] = $userFirst;
-    $_SESSION['user']['user_lname'] = $userLast;
-    $_SESSION['user']['user_pass'] = $userPass;
-    $_SESSION['user']['user_email'] = $userEmail;
-    $_SESSION['user']['user_phone'] = $userPhone;
-    $_SESSION['user']['user_address'] = $userAddress;
-
-    if ($userPass == NULL || $userEmail == NULL || $userPhone == NULL || $userAddress == NULL) {
-        $error = "Missing or incorrect data";
-        include('../errors/error.php');
-    } else { 
-        update_user($username, $userFirst, $userLast, $userPass, $userEmail, $userPhone, $userAddress);
-        include('user_dashboard.php');
-    }
-}
 ?>

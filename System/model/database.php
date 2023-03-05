@@ -6,11 +6,10 @@
     try {
         $db = new PDO($dsn, $username, $password);
         $i = check_install();
-        $in = intval($i[0][2]);
-        $fr = intval($i[1][2]);
+        $in = intval($i[0][2]); // is installed already?
+        $fr = intval($i[1][2]); // is first run?
         if($in == 0){
             if ($fr == 0) {
-                log_it('Initiating install....');
                 first_run();
             } else {
                 log_it('GDIT first run completed.');
@@ -31,25 +30,14 @@
         $statement = $db->prepare($sql);
         $statement->execute();
         $install_status = $statement->fetchAll();
-        log_it($install_status);
         $statement->closeCursor();
         return $install_status;
-    }
-    
-    function update_install() {
-        global $db;
-        $sql = 'UPDATE gdit_sys_install SET option_value = \'1\' WHERE option_name = \'gdit_install\'; UPDATE gdit_sys_install SET option_value = \'1\' WHERE option_name = \'gdit_install\'; ';
-        $statement = $db->prepare($sql);
-        $statement->execute();
-        $statement->closeCursor();
-        log_it('Updated first run code.');
     }
 
     function first_run() {
         $bcost = test_cost();
         $users = get_users_to_mod();
         $users = hash_pass($users, $bcost);
-        log_it($users);
         update_install();
     }
 
@@ -79,9 +67,15 @@
         $statement->execute();
         $statement->closeCursor();
 
-        log_it('Cost: '.$cost);
-
         return $cost;
+    }
+        
+    function update_install() {
+        global $db;
+        $sql = 'UPDATE gdit_sys_install SET option_value = \'1\' WHERE option_name = \'gdit_install\'; UPDATE gdit_sys_install SET option_value = \'1\' WHERE option_name = \'gdit_install\'; ';
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $statement->closeCursor();
     }
 
     function get_users_to_mod() {
@@ -94,6 +88,25 @@
         return $users_to_mod;
     }
 
+    function hash_pass($u, $bcost) {
+        $options = ['cost' => $bcost];
+        foreach($u as $key => $user) : 
+            $pass = $user['password'];
+            $newpass = password_hash($pass, PASSWORD_BCRYPT, $options);
+            $u[$key]['password'] = trim($newpass); 
+            update_pwd($u[$key]);
+        endforeach;
+        return $u;
+    }
+    
+    function hash_password($p) {
+        $b = get_bcrypt();
+        $options = ['cost' => $b];
+        $newp = password_hash($p, PASSWORD_BCRYPT, $options);
+        $newp = trim($newp);
+        return $newp;
+    }
+    
     function update_pwd($u) {
         global $db;
         $query = 'UPDATE users
@@ -106,15 +119,15 @@
         $statement->closeCursor();
     }
 
-    function hash_pass($u, $bcost) {
-        $options = ['cost' => $bcost];
-        foreach($u as $key => $user) : 
-            $pass = $user['password'];
-            $newpass = password_hash($pass, PASSWORD_DEFAULT);
-            $u[$key]['password'] = $newpass; 
-            update_pwd($u[$key]);
-        endforeach;
-        return $u;
+    function get_bcrypt() {
+        global $db;
+        $q = 'SELECT option_value from gdit_sys_install WHERE option_name=\'serv_bcryp_cost\'';
+        $statement = $db->prepare($q);
+        $statement->execute();
+        $cost = $statement->fetch();
+        $cost = intval($cost[0]);
+        $statement->closeCursor();
+        return $cost;
     }
 
     function log_it($output, $with_script=true) {
