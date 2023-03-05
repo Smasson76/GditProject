@@ -1,6 +1,7 @@
 ﻿/*****************************************
 * Create the Gdit System database
 *****************************************/
+DROP DATABASE IF EXISTS gdit_system_sql;
 DROP DATABASE IF EXISTS gdit_system;
 CREATE DATABASE gdit_system;
 USE gdit_system;
