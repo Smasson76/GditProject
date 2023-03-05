@@ -1,9 +1,9 @@
 ﻿/*****************************************
 * Create the Gdit System database
 *****************************************/
-DROP DATABASE IF EXISTS gdit_system_sql;
-CREATE DATABASE gdit_system_sql;
-USE gdit_system_sql;
+DROP DATABASE IF EXISTS gdit_system;
+CREATE DATABASE gdit_system;
+USE gdit_system;
 
 -- GDIT Installation
 CREATE TABLE gdit_sys_install (

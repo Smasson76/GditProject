@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=gdit_system_sql'; // CHANGE TECH SUPPORT ONCE WE HAVE A DATABASE
+    $dsn = 'mysql:host=localhost;dbname=gdit_system'; // CHANGE TECH SUPPORT ONCE WE HAVE A DATABASE
     $username = 'ts_user';
     $password = 'pa55word';
 
