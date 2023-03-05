@@ -40,6 +40,7 @@
     --btn-sec-col-hov-dk: #252525;
     --btn-sec-bg-hov-dk: #81898f;
     --select-bg: #e7e7e7;
+    --select-bg-dk: #4a545b;
 
     /** UI Line Accents **/
   --nav-accent-border: #4a545b;
@@ -47,6 +48,7 @@
   --pri-table-altrow: #f0f0f0;
   --nav-accent-border-dk: #a4a6a8;
   --pri-table-border-dk: #a4a6a8;
+  --pri-table-altrow: #474a4c;
 
   --nav-btn-color: #4a545b;
   --nav-btn-hov-color: #474a4c;
@@ -469,6 +471,13 @@ select {
   .login-form input[type=text], .login-form input[type=password],
   .general-form input[type=text], .general-form input[type=password] {
     border-color: var(--login-border-accent);
+  }
+  select {
+    border: 1px solid var(--select-bg-dk);
+    background-color: var(--select-bg-dk);
+  }
+  tr:nth-child(even) {
+    background-color: var(--pri-table-altrow);
   }
 
   /* UI Btn Styles */
