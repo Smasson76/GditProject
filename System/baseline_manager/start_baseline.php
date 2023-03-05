@@ -15,7 +15,7 @@ include '../view/header-nav.php';
         <br><br>
         <label for="framework_id"><h3>Choose a Framework:</h3></label>
         <select name="framework_id" id="ato">
-            <option value="nist80053oscal">NIST SP 800-53</option>
+            <option value="NIST80053OSCAL">NIST SP 800-53</option>
         </select>
 
         <br><br>
