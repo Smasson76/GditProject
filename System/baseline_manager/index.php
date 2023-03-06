@@ -22,7 +22,7 @@ if ($action == 'start_baseline') {
     $client_id = filter_input(INPUT_POST, 'client_id');
     $framework = filter_input(INPUT_POST, 'framework_id');
     $impact = filter_input(INPUT_POST, 'impact');
-
+    var_dump($client_id);
     if (isset($_POST['hide_unselected'])) {
         $hide = TRUE;
     } else {
@@ -48,6 +48,7 @@ if ($action == 'start_baseline') {
     include('../errors/error.php');
     } else { 
         save_baseline($clientctrls);
+        $controls = get_saved_baseline();
         include('implementation_page.php');
     }
 } else if ($action == 'implementation') {

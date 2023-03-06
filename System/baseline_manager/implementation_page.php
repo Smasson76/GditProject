@@ -17,6 +17,13 @@ include '../view/header-nav.php';
             <th>Comments</th>
         </tr>
         
+        <form action="index.php" id="bline" method="post">   
+            <input type="hidden" name="action" value="implementation">       
+            <?php foreach($controls as $control) : ?>
+            <tr><td>
+                <?php echo $control['ctrl_id']; ?>
+            </td></tr>
+            <?php endforeach; ?>
     </table>
 
 </section>

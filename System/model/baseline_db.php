@@ -50,8 +50,17 @@ function save_baseline($clientctrls) {
         VALUES (NULL,'$cli_id','$ct_id','$ct_nm','$ct_sel')";
         mysqli_query($link, $sql);
     }
+}
 
-
+function get_saved_baseline() {
+    global $db;
+    $sql = "SELECT b_client_id FROM savedbaselines
+            WHERE b_client_id = 1";
+    $statement = $db->prepare($sql);
+    $statement->execute();
+    $baselines = $statement->fetchAll();
+    $statement->closeCursor();
+    return $baselines;  
 }
 
 
