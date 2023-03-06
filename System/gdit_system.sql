@@ -39,11 +39,14 @@ CREATE TABLE clients (
 
 -- GDIT SavedBaselines
 CREATE TABLE savedbaselines (
-  clientID          INT            NOT NULL,
-  controlID         VARCHAR(10)    NOT NULL,
-  controlName       VARCHAR(50)    NOT NULL,
-  PRIMARY KEY (controlID),
-  FOREIGN KEY (clientID) REFERENCES clients(clientID)
+  baseid            INT           NOT NULL AUTO_INCREMENT,
+  b_client_id        INT            NOT NULL,
+  b_ctrl_id         VARCHAR(10)    NOT NULL,
+  b_ctrl_name       VARCHAR(50)    NOT NULL,
+  b_ctrl_impl        BOOLEAN,
+  PRIMARY KEY (baseid),
+  FOREIGN KEY (b_client_id) REFERENCES clients(clientID)
+  -- TODO FK -> nist table -> ctrl_id
 );
 
 -- Populate Installation table

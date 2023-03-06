@@ -6,12 +6,24 @@ if (session_status() == PHP_SESSION_NONE) {
 include '../view/header.php'; 
 include '../view/header-nav.php';
 
+
 ?>
 
 <main>
 
     <form action="index.php" method="post" id="view_baseline_form">
         <input type="hidden" name="action" value="select_framework">
+        <br><br>
+        <label for="client_id"><h3>Select a Client:</h3></label>
+        
+        <select name="client_id" id="ato">
+            <?php foreach($clients as $client) : ?>
+                <option value="<?php echo $client['clientID']; ?>">
+                    <?php echo $client['clientName']; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+
         <br><br>
         <label for="framework_id"><h3>Choose a Framework:</h3></label>
         <select name="framework_id" id="ato">
@@ -30,7 +42,6 @@ include '../view/header-nav.php';
         
         <input type="checkbox" name="hide_unselected">
         <label for="hide_unselected">Hide Unselected Controls</label>
-        
 
         <br><br><br>
 
