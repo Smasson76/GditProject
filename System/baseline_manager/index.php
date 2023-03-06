@@ -41,22 +41,17 @@ if ($action == 'start_baseline') {
         // header("Location: .");
     }
 } else if ($action == 'select_ctrl') {
-    $clientctrls = filter_input(INPUT_POST, 'clientctrl', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+    $clientctrls = filter_input(INPUT_POST, 'ctrlset', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
 
-    // $clientctrls = $_POST['clientctrl'];
-    // $client_id = filter_input(INPUT_POST, 'client_id', FILTER_VALIDATE_INT);
-    // $ctrl_id = filter_input(INPUT_POST, 'ctrl_id');
-    // $ctrl_name = filter_input(INPUT_POST, 'ctrl_name');
-
-    // if (isset($_POST['ctrl_select'])) {
-    //     $ctrl_implement = true;
-    // } else {
-    //     $ctrl_implement = false;
-    // }
-    // save_baseline($clientctrls);
-    log_it($clientctrls);
-    // save_baseline($client_id, $ctrl_id, $ctrl_name, $ctrl_implement);
-    include('implementation_page.php');
+    if ($clientctrls === NULL || $clientctrls === FALSE) {
+    $error = "Missing or incorrect framework or impact level.";
+    include('../errors/error.php');
+    } else { 
+        save_baseline($clientctrls);
+        include('implementation_page.php');
+    }
+} else if ($action == 'implementation') {
+    
 }
 
 

@@ -55,7 +55,9 @@
 		c17.3,0,18.6,15.3,18.6,21.4V203h-6.3v-34.1c0-9.2-5.3-14.5-13.9-14.5c-10.4,0-15.2,8.7-15.2,18.2V203z M11.9,203h6.8v-76.3h-6.8
 		V203z"></path></g>
     </svg>
-        <a href="../user_manager/user_dashboard.php">View Dashboard</a>
-		<a href="../index.php">Logout</a>
-    </nav>
+	<ul class="top-nav">
+        <li><a href="../user_manager/user_dashboard.php">View Dashboard</a></li>
+		<li><a href="../index.php">Logout</a></li>
+	</ul>
+	</nav>
 </header>

@@ -1,7 +1,6 @@
 ﻿/*****************************************
 * Create the Gdit System database
 *****************************************/
-DROP DATABASE IF EXISTS gdit_system_sql;
 DROP DATABASE IF EXISTS gdit_system;
 CREATE DATABASE gdit_system;
 USE gdit_system;
@@ -43,7 +42,7 @@ CREATE TABLE savedbaselines (
   b_client_id        INT            NOT NULL,
   b_ctrl_id         VARCHAR(10)    NOT NULL,
   b_ctrl_name       VARCHAR(50)    NOT NULL,
-  b_ctrl_impl        BOOLEAN,
+  b_ctrl_impl        VARCHAR(10),
   PRIMARY KEY (baseid),
   FOREIGN KEY (b_client_id) REFERENCES clients(clientID)
   -- TODO FK -> nist table -> ctrl_id
