@@ -10,7 +10,6 @@ include '../view/header.php';
 include '../view/header-nav.php';
 
 $client = get_client_id($client_id);
-log_it($client);
 $clientid = $client['clientID'];
 ?>
 <script type="text/javascript">
@@ -26,18 +25,19 @@ $clientid = $client['clientID'];
 <main>
     <h2>Framework Control Selection for <?php echo $client['clientName'] ?></h2>
         <br><br>
-        <table>
+        <table class="ctrl-select">
             <tr>
-                <th>Select</th>
-                <th>Control ID</th>
-                <th>Control Name</th>
-                <th>Low</th>
-                <th>Moderate</th>
-                <th>High</th>
+                <th class="cenx" width="10">Select</th>
+                <th class="cenx" width="100">ID</th>
+                <th class="cenx">Control Name</th>
+                <th class="cenx" width="14">Low</th>
+                <th class="cenx" width="14">Mod.</th>
+                <th class="cenx" width="14">High</th>
             </tr>
             
             <form action="index.php" id="bline" method="post">   
-            <input type="hidden" name="action" value="select_ctrl">       
+            <input type="hidden" name="action" value="select_ctrl">   
+            <input type="hidden" name="clientid" value="<?php echo $clientid; ?>">    
             <?php $ctrl_col = "ctrl_base_".$impact;
             $i = 0;
             foreach($controls as $control) : ; ?>
@@ -52,9 +52,9 @@ $clientid = $client['clientID'];
                     </td>
                     <td><?php echo $control['ctrl_id']; ?></td>
                     <td><?php echo $control['ctrl_name']; ?></td>
-                    <td><?php echo $control['ctrl_base_low']; ?></td>
-                    <td><?php echo $control['ctrl_base_mod']; ?></td>
-                    <td><?php echo $control['ctrl_base_high']; ?></td>
+                    <td class="cenx"><?php echo $control['ctrl_base_low']; ?></td>
+                    <td class="cenx"><?php echo $control['ctrl_base_mod']; ?></td>
+                    <td class="cenx"><?php echo $control['ctrl_base_high']; ?></td>
                 </tr>
             <?php endforeach; ?>
 

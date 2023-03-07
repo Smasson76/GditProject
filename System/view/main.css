@@ -4,9 +4,12 @@
   box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 :root {
   color-scheme: light dark;
 
+  --font: 'Open Sans';
   /** Main Color Scheme **/
   --logo-w: 254px;
   --logo-h: 135px;
@@ -48,7 +51,7 @@
   --pri-table-altrow: #f0f0f0;
   --nav-accent-border-dk: #a4a6a8;
   --pri-table-border-dk: #a4a6a8;
-  --pri-table-altrow: #474a4c;
+  --pri-table-altrow-dk: #474a4c;
 
   --nav-btn-color: #4a545b;
   --nav-btn-hov-color: #474a4c;
@@ -80,8 +83,8 @@ html {
 
 body {
   margin-top: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
+  font-family: var(--font), Arial, Helvetica, sans-serif;
+  width: 75%;
   margin: 0 auto;
   transition: all .8s ease;
 }
@@ -269,14 +272,12 @@ a:hover {
 }
 
 table {
-  border: 1px solid var(--pri-table-border);
-  border-radius: 3px;
+  border: 0px solid var(--pri-table-border);
   border-collapse: collapse;
 }
 td, th {
-  border: 1px solid var(--pri-table-border);
+  border: 0px solid var(--pri-table-border);
   padding: .2em .5em .2em .5em;
-  border-radius: 3px;
   text-align: left;
 }
 tr:nth-child(even) {
@@ -289,6 +290,17 @@ tr:nth-child(even) {
   border: 0px;
 }
 
+.ctrl-select th {
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.cenx {
+  text-align: center;
+}
+.ctrl-select table tr td {
+}
+
 form {
   margin: 0;
 }
@@ -296,7 +308,7 @@ br {
   clear: left;
 }
 textarea {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font), Arial, Helvetica, sans-serif;
   font-size: 80%;
 }
 
@@ -410,6 +422,11 @@ textarea {
   color: var(--body-p);
 }
 
+table input[type=checkbox] {
+  margin: auto;
+  display: flex;
+}
+
 .login-form input[type=text] {
   padding: 1rem;
   margin: 1rem;
@@ -488,7 +505,7 @@ select {
     background-color: var(--select-bg-dk);
   }
   tr:nth-child(even) {
-    background-color: var(--pri-table-altrow);
+    background-color: var(--pri-table-altrow-dk);
   }
 
   /* UI Btn Styles */

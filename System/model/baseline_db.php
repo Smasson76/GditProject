@@ -34,6 +34,7 @@ function get_client_id($id) {
     $statement->bindValue(':clientid', $id);
     $statement->execute();
     $client = $statement->fetch();
+    $GLOBALS['curr_client'] = $client;
     $statement->closeCursor();
     return $client;   
 }
@@ -52,11 +53,13 @@ function save_baseline($clientctrls) {
     }
 }
 
-function get_saved_baseline() {
+function get_saved_baseline($clientid) {
     global $db;
-    $sql = "SELECT b_client_id FROM savedbaselines
-            WHERE b_client_id = 1";
+    $sql = 'SELECT sb.baseid, sb.b_ctrl_id, nio.ctrl_desc
+            FROM savedbaselines sb JOIN nist80053oscal nio ON sb.b_ctrl_id=nio.ctrl_id
+            WHERE sb.b_client_id = :clientid';
     $statement = $db->prepare($sql);
+    $statement->bindValue(':clientid', $clientid);
     $statement->execute();
     $baselines = $statement->fetchAll();
     $statement->closeCursor();

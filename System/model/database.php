@@ -2,7 +2,7 @@
     $dsn = 'mysql:host=localhost;dbname=gdit_system'; // CHANGE TECH SUPPORT ONCE WE HAVE A DATABASE
     $username = 'ts_user';
     $password = 'pa55word';
-
+    global $current_client;
     try {
         $db = new PDO($dsn, $username, $password);
         $i = check_install();

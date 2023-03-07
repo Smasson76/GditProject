@@ -22,7 +22,7 @@ if ($action == 'start_baseline') {
     $client_id = filter_input(INPUT_POST, 'client_id');
     $framework = filter_input(INPUT_POST, 'framework_id');
     $impact = filter_input(INPUT_POST, 'impact');
-    var_dump($client_id);
+    // var_dump($client_id);
     if (isset($_POST['hide_unselected'])) {
         $hide = TRUE;
     } else {
@@ -42,13 +42,14 @@ if ($action == 'start_baseline') {
     }
 } else if ($action == 'select_ctrl') {
     $clientctrls = filter_input(INPUT_POST, 'ctrlset', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
-
+    $clientid = filter_input(INPUT_POST, 'clientid');
     if ($clientctrls === NULL || $clientctrls === FALSE) {
     $error = "Missing or incorrect framework or impact level.";
     include('../errors/error.php');
     } else { 
         save_baseline($clientctrls);
-        $controls = get_saved_baseline();
+        $controls = get_saved_baseline($clientid);
+        // var_dump($controls);
         include('implementation_page.php');
     }
 } else if ($action == 'implementation') {
