@@ -2,7 +2,7 @@
 
 <main>
     <div class="gdit-home">
-	<?php include ('view/logo-g.php');?>
+	<?php include ('view/logo_g.php');?>
   
     <ul>
 		<div class="login-page-buttons">

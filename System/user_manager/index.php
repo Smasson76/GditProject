@@ -34,7 +34,7 @@ if ($action == 'login_page') {
             $userPhone = get_user_phone($username);
             $userAddress = get_user_address($username);
             $_SESSION['user'] = [];
-            $_SESSION['user']['usern'] = $username;
+            $_SESSION['user']['u_alias'] = $username;
             $_SESSION['user']['user_fname'] = $userFirst;
             $_SESSION['user']['user_lname'] = $userLast;
             $_SESSION['user']['user_pass'] = $password;
@@ -60,7 +60,7 @@ else if ($action == 'update_user') {
     $userAddress = filter_input(INPUT_POST, 'address');
 
     $_SESSION['user'] = [];
-    $_SESSION['user']['usern'] = $username;
+    $_SESSION['user']['u_alias'] = $username;
     $_SESSION['user']['user_fname'] = $userFirst;
     $_SESSION['user']['user_lname'] = $userLast;
     $_SESSION['user']['user_pass'] = $userPass;

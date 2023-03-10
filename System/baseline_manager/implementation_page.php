@@ -4,12 +4,12 @@ include '../view/header.php';
 include '../view/header-nav.php';
 
 $client = get_client_id($clientid);
-$clientid = $client['clientID'];
+$clientid = $client['cl_id'];
 ?>
 
 <main>
 
-    <h2><?php echo $client['clientName']; ?> Implementation</h2>
+    <h2><?php echo $client['cl_name']; ?> Implementation</h2>
     <br><br>
     <table class="ctrl-select">
         <tr>
@@ -23,7 +23,7 @@ $clientid = $client['clientID'];
             <input type="hidden" name="action" value="implementation">       
             <?php foreach($controls as $control) : ?>
             <tr>
-                <td><?php echo $control['b_ctrl_id']; ?></td>
+                <td><?php echo $control['bl_ctrl_id']; ?></td>
                 <td>
                 <select name="status" id="status">
                     <option value="Implemented">Implemented</option>

@@ -2,7 +2,7 @@
 <main>
 <div class="split left brand">
   <div class="centered">
-  <?php include ('view/logo-w.php');?>
+  <?php include ('../view/logo_w.php');?>
 
   </div>
 </div>
@@ -13,11 +13,11 @@
         <input type="hidden" name="action" value="login">
 
         <label class="sr-only">Username:</label>
-        <input type="text" name="username" placeholder="username"/>
+        <input type="text" name="username" autocomplete="username" placeholder="username"/>
         <br>
 
         <label class="sr-only">Password:</label>
-        <input type="password" name="password" placeholder="password" />
+        <input type="password" name="password" autocomplete="current-password" placeholder="password" />
         <br>
         <br>
         

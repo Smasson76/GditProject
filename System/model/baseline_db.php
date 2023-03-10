@@ -29,7 +29,7 @@ function get_clients() {
 
 function get_client_id($id) {
     global $db;
-    $sql = 'SELECT * FROM clients WHERE clientID = :clientid';
+    $sql = 'SELECT * FROM clients WHERE cl_id = :clientid';
     $statement = $db->prepare($sql);
     $statement->bindValue(':clientid', $id);
     $statement->execute();
@@ -47,7 +47,7 @@ function save_baseline($clientctrls) {
         $ct_nm = $row['ctrlname'];
         $ct_sel = $row['ctrlsel'];
 
-        $sql = "INSERT INTO savedbaselines (baseid, b_client_id, b_ctrl_id, b_ctrl_name, b_ctrl_impl)
+        $sql = "INSERT INTO savedbaselines (bl_id, bl_cl_id, bl_ctrl_id, bl_ctrl_name, bl_ctrl_stat)
         VALUES (NULL,'$cli_id','$ct_id','$ct_nm','$ct_sel')";
         mysqli_query($link, $sql);
     }
@@ -55,9 +55,9 @@ function save_baseline($clientctrls) {
 
 function get_saved_baseline($clientid) {
     global $db;
-    $sql = 'SELECT sb.baseid, sb.b_ctrl_id, nio.ctrl_desc
-            FROM savedbaselines sb JOIN NIST80053OSCAL nio ON sb.b_ctrl_id=nio.ctrl_id
-            WHERE sb.b_client_id = :clientid LIMIT 25';
+    $sql = 'SELECT sb.bl_id, sb.bl_ctrl_id, nio.ctrl_desc
+            FROM savedbaselines sb JOIN nist80053oscal nio ON sb.bl_ctrl_id=nio.ctrl_id
+            WHERE sb.bl_cl_id = :clientid LIMIT 25';
     $statement = $db->prepare($sql);
     $statement->bindValue(':clientid', $clientid);
     $statement->execute();

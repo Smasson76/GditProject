@@ -12,8 +12,8 @@ include '../view/header-nav.php';
     <form class="general-form" action="index.php" method="post" id="view_user_form">
         <input type="hidden" name="action" value="update_user">
 
-        <label>ID: <?php echo $_SESSION['user']['usern'] ?></label>
-        <input type="hidden" name="username" value="<?php echo $_SESSION['user']['usern'] ?>"/>
+        <label>ID: <?php echo $_SESSION['user']['u_alias'] ?></label>
+        <input type="hidden" name="username" value="<?php echo $_SESSION['user']['u_alias'] ?>"/>
         <br><br>
 
         <label>First Name: <?php echo $_SESSION['user']['user_fname'] ?></label>

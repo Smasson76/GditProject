@@ -2,7 +2,7 @@
     $dsn = 'mysql:host=localhost;dbname=gdit_system'; // CHANGE TECH SUPPORT ONCE WE HAVE A DATABASE
     $username = 'ts_user';
     $password = 'pa55word';
-    global $current_client;
+
     try {
         $db = new PDO($dsn, $username, $password);
         $i = check_install();
@@ -26,7 +26,7 @@
 
     function check_install() {
         global $db;
-        $sql = 'SELECT * FROM gdit_sys_install';
+        $sql = 'SELECT * FROM install_options';
         $statement = $db->prepare($sql);
         $statement->execute();
         $install_status = $statement->fetchAll();
@@ -60,8 +60,8 @@
         } while (($end - $start) < $timeTarget);
 
         global $db;
-        $sql = 'UPDATE gdit_sys_install SET option_value = :cost
-                WHERE option_name = \'serv_bcryp_cost\'';
+        $sql = 'UPDATE install_options SET opt_value = :cost
+                WHERE opt_name = \'serv_bcryp_cost\'';
         $statement = $db->prepare($sql);
         $statement->bindValue(':cost', $cost);
         $statement->execute();
@@ -72,7 +72,7 @@
         
     function update_install() {
         global $db;
-        $sql = 'UPDATE gdit_sys_install SET option_value = \'1\' WHERE option_name = \'gdit_install\'; UPDATE gdit_sys_install SET option_value = \'1\' WHERE option_name = \'gdit_install\'; ';
+        $sql = 'UPDATE install_options SET opt_value = \'1\' WHERE opt_name = \'gdit_install\'; UPDATE install_options SET opt_value = \'1\' WHERE opt_name = \'gdit_install\'; ';
         $statement = $db->prepare($sql);
         $statement->execute();
         $statement->closeCursor();
@@ -80,7 +80,7 @@
 
     function get_users_to_mod() {
         global $db;
-        $sql = 'SELECT * FROM users WHERE users.password is not null';
+        $sql = 'SELECT * FROM users WHERE users.u_password is not null';
         $statement = $db->prepare($sql);
         $statement->execute();
         $users_to_mod = $statement->fetchAll();
@@ -91,9 +91,9 @@
     function hash_pass($u, $bcost) {
         $options = ['cost' => $bcost];
         foreach($u as $key => $user) : 
-            $pass = $user['password'];
+            $pass = $user['u_password'];
             $newpass = password_hash($pass, PASSWORD_BCRYPT, $options);
-            $u[$key]['password'] = trim($newpass); 
+            $u[$key]['u_password'] = trim($newpass); 
             update_pwd($u[$key]);
         endforeach;
         return $u;
@@ -110,18 +110,18 @@
     function update_pwd($u) {
         global $db;
         $query = 'UPDATE users
-            SET password = :userPass
-            WHERE email = :userEmail';
+            SET u_password = :userPass
+            WHERE u_email = :userEmail';
         $statement = $db->prepare($query);
-        $statement->bindValue(':userEmail', $u['email']);
-        $statement->bindValue(':userPass', $u['password']);
+        $statement->bindValue(':userEmail', $u['u_email']);
+        $statement->bindValue(':userPass', $u['u_password']);
         $statement->execute();
         $statement->closeCursor();
     }
 
     function get_bcrypt() {
         global $db;
-        $q = 'SELECT option_value from gdit_sys_install WHERE option_name=\'serv_bcryp_cost\'';
+        $q = 'SELECT opt_value from install_options WHERE opt_name=\'serv_bcryp_cost\'';
         $statement = $db->prepare($q);
         $statement->execute();
         $cost = $statement->fetch();

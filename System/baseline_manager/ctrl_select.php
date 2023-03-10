@@ -10,7 +10,7 @@ include '../view/header.php';
 include '../view/header-nav.php';
 
 $client = get_client_id($client_id);
-$clientid = $client['clientID'];
+$clientid = $client['cl_id'];
 ?>
 <script type="text/javascript">
     // when page is ready
@@ -23,7 +23,7 @@ $clientid = $client['clientID'];
     })
 </script>
 <main>
-    <h2>Framework Control Selection for <?php echo $client['clientName'] ?></h2>
+    <h2>Framework Control Selection for <?php echo $client['cl_name'] ?></h2>
         <br><br>
         <table class="ctrl-select">
             <tr>

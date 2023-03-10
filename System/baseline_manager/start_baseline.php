@@ -18,8 +18,8 @@ include '../view/header-nav.php';
         
         <select name="client_id" id="ato">
             <?php foreach($clients as $client) : ?>
-                <option value="<?php echo $client['clientID']; ?>">
-                    <?php echo $client['clientName']; ?>
+                <option value="<?php echo $client['cl_id']; ?>">
+                    <?php echo $client['cl_name']; ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -27,7 +27,7 @@ include '../view/header-nav.php';
         <br><br>
         <label for="framework_id"><h3>Choose a Framework:</h3></label>
         <select name="framework_id" id="ato">
-            <option value="NIST80053OSCAL">NIST SP 800-53</option>
+            <option value="nist80053oscal">NIST SP 800-53</option>
         </select>
 
         <br><br>
