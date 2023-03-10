@@ -4,11 +4,11 @@ function get_controls($framework, $impact, $hide) {
     global $db;
     if($hide == FALSE) {
         $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
-                ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id';
+                ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id LIMIT 50';
     } else {
         $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
                 ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id WHERE ctrl_base_'
-                . $impact .'=\'x\' OR ctrl_base_low = \'\' AND ctrl_base_mod = \'\' AND ctrl_base_high = \'\'';
+                . $impact .'=\'x\' OR ctrl_base_low = \'\' AND ctrl_base_mod = \'\' AND ctrl_base_high = \'\'  LIMIT 50';
     }
     $statement = $db->prepare($sql);
     $statement->execute();
@@ -56,8 +56,8 @@ function save_baseline($clientctrls) {
 function get_saved_baseline($clientid) {
     global $db;
     $sql = 'SELECT sb.baseid, sb.b_ctrl_id, nio.ctrl_desc
-            FROM savedbaselines sb JOIN nist80053oscal nio ON sb.b_ctrl_id=nio.ctrl_id
-            WHERE sb.b_client_id = :clientid';
+            FROM savedbaselines sb JOIN NIST80053OSCAL nio ON sb.b_ctrl_id=nio.ctrl_id
+            WHERE sb.b_client_id = :clientid LIMIT 25';
     $statement = $db->prepare($sql);
     $statement->bindValue(':clientid', $clientid);
     $statement->execute();

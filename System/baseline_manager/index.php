@@ -49,11 +49,13 @@ if ($action == 'start_baseline') {
     } else { 
         save_baseline($clientctrls);
         $controls = get_saved_baseline($clientid);
-        // var_dump($controls);
+        var_dump($controls);
         include('implementation_page.php');
     }
 } else if ($action == 'implementation') {
-    
+    $controls = get_saved_baseline($clientid);
+    var_dump($controls);
+    include('implementation_page.php');
 }
 
 
