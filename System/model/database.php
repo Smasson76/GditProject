@@ -3,6 +3,8 @@
     $username = 'ts_user';
     $password = 'pa55word';
 
+    $link = mysqli_connect('localhost', 'ts_user', 'pa55word', 'gdit_system');
+
     try {
         $db = new PDO($dsn, $username, $password);
         $i = check_install();

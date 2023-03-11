@@ -40,7 +40,7 @@ function get_client_id($id) {
 }
 
 function save_baseline($clientctrls) {
-    $link = mysqli_connect('localhost', 'ts_user', 'pa55word', 'gdit_system');
+    global $link;
     foreach ($clientctrls as $row) {
         $cli_id = $row['clientid'];
         $ct_id = $row['cid'];
