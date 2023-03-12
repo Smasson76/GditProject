@@ -30,4 +30,15 @@ else if ($action == 'select_client') {
     include('view_client.php');
 }
 
+else if ($action == 'update_client') {
+    $client_id = filter_input(INPUT_POST, 'client_id');
+    $client_name = filter_input(INPUT_POST, 'client_name');
+    $client_alias = filter_input(INPUT_POST, 'client_alias');
+    $client_email = filter_input(INPUT_POST, 'client_email');
+
+    update_client($client_id, $client_name, $client_alias, $client_email);
+    $clients = get_all_clients();
+    include('view_accounts.php');
+}
+
 ?>

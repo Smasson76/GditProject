@@ -48,7 +48,7 @@ include '../view/header-nav.php';
             <tr>
                 <td><?php echo $baseline['bl_ctrl_id']; ?></td>
                 <td><form action="." method="post">
-                    <input type="hidden" name="action" value="select_client">
+                    <input type="hidden" name="action" value="update_client">
                     <input type="hidden" name="client_id" value="<?php echo $baseline['bl_id']; ?>">  
                 </form></td>
             </tr>
