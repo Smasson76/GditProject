@@ -15,5 +15,5 @@ include '../view/header-nav.php';
         <li><a href="">View Documents</a></li>
     </ul> 
     </nav>
-</section>
+</main>
 <?php include '../view/footer.php'; ?>

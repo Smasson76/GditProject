@@ -48,5 +48,5 @@ include '../view/header-nav.php';
         <input class="button secondary pill" type="submit" value="Start Baseline" />
         <br>
     </form>
-</section>
+</main>
 <?php include '../view/footer.php'; ?>

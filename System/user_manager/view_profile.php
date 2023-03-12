@@ -44,6 +44,6 @@ include '../view/header-nav.php';
         <input class="button secondary pill" type="submit" value="Update Information" />
         <br>
     </form>
-</section>
+</main>
 <?php include '../view/footer.php'; ?>
 

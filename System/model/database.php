@@ -10,14 +10,8 @@
         $i = check_install();
         $in = intval($i[0][2]); // is installed already?
         $fr = intval($i[1][2]); // is first run?
-        if($in == 0){
-            if ($fr == 0) {
-                first_run();
-            } else {
-                log_it('GDIT first run completed.');
-            }
-        } else {
-            log_it('GDIT previously installed');
+        if($in == 0 && $fr == 0){
+                first_run();            
         }
         
     } catch (PDOException $e) {

@@ -11,4 +11,4 @@
 		</div>
     </ul>    
     </div>
-</section>
+</main>
