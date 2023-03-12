@@ -14,7 +14,6 @@ include '../view/header-nav.php';
         <li><a href="../baseline_manager">Start Baseline</a></li>
         <li><a href="">View Documents</a></li>
     </ul> 
-    </ul>    
     </nav>
 </section>
 <?php include '../view/footer.php'; ?>

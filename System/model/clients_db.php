@@ -11,6 +11,4 @@ function get_all_clients() {
     return $clients;   
 }
 
-
-
 ?>

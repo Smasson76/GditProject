@@ -20,4 +20,14 @@ if ($action == 'view_accounts') {
     include('view_accounts.php');
 }
 
+else if ($action == 'select_client') {
+    $client_id = filter_input(INPUT_POST, 'client_id');
+    $client_name = filter_input(INPUT_POST, 'client_name');
+    $client_alias = filter_input(INPUT_POST, 'client_alias');
+    $client_email = filter_input(INPUT_POST, 'client_email');
+
+    $baselines = get_saved_baseline($client_id);
+    include('view_client.php');
+}
+
 ?>

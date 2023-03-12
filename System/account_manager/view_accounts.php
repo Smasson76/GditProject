@@ -10,6 +10,8 @@ include '../view/header-nav.php';
 ?>
 
 <main>
+
+<br><a href="">Add New Client</a><br><br>
 <h1>Client List</h1>
     <section>
         <!-- display a table of clients -->
@@ -23,7 +25,10 @@ include '../view/header-nav.php';
                 <td><?php echo $client['cl_name']; ?></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action" value="select_client">
-                    <input type="hidden" name="client_id" value="<?php echo $client['cl_name']; ?>">
+                    <input type="hidden" name="client_id" value="<?php echo $client['cl_id']; ?>">  
+                    <input type="hidden" name="client_name" value="<?php echo $client['cl_name']; ?>">
+                    <input type="hidden" name="client_alias" value="<?php echo $client['cl_alias']; ?>">
+                    <input type="hidden" name="client_email" value="<?php echo $client['cl_email']; ?>">
                     <input type="submit" value="Select">
                 </form></td>
             </tr>

@@ -600,3 +600,17 @@ select {
   cursor: pointer;
   text-align: center;
 }
+
+section#client-baseline-section {
+  float:right;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+section#client-info-section {
+  float:left;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}

@@ -66,8 +66,17 @@ function get_saved_baseline($clientid) {
     return $baselines;  
 }
 
-
+function get_saved_baseline_for_client($clientid) {
+    global $db;
+    $sql = 'SELECT *
+            FROM savedbaselines
+            WHERE sb.bl_cl_id = :clientid LIMIT 25';
+    $statement = $db->prepare($sql);
+    $statement->bindValue(':clientid', $clientid);
+    $statement->execute();
+    $baselines = $statement->fetchAll();
+    $statement->closeCursor();
+    return $baselines;  
+}
 
 ?>
-
-
