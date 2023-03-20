@@ -370,6 +370,12 @@ tr:nth-child(even) {
 form {
   margin: 0;
 }
+label {
+  width: 10em;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
 br {
   clear: left;
 }
