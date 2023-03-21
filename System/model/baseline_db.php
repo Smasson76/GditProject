@@ -56,8 +56,8 @@ function save_baseline($clientctrls) {
             $ct_sel = "Not_Applicable";
         }
 
-        $sql = "INSERT INTO savedbaselines (bl_id, bl_cl_id, bl_ctrl_id, bl_stat)
-        VALUES (NULL,'$cli_id','$ct_id','$ct_sel')";
+        $sql = "INSERT INTO savedbaselines (bl_id, bl_cl_id, bl_ctrl_id, bl_stat, bl_created, bl_modified, bl_comments)
+        VALUES (NULL,'$cli_id','$ct_id','$ct_sel',NOW(), NOW(), '')";
         mysqli_query($link, $sql);
     }
 }
@@ -71,12 +71,6 @@ function update_baseline($bl_implementation) {
         $bl_comments = $row['bl_comments'];
         $bl_created = $row['bl_created'];
 
-        if ($bl_stat === "on") {
-            $bl_stat = "In_Progress";
-        } else {
-            $bl_stat = "Not_Applicable";
-        }
-
         $sql = "UPDATE savedbaselines SET bl_stat = '$bl_stat',
         bl_comments = '$bl_comments' WHERE bl_cl_id = '$bl_cl_id' AND bl_ctrl_id = '$bl_ctrl_id'
         AND bl_created = '$bl_created'";
@@ -86,7 +80,7 @@ function update_baseline($bl_implementation) {
 
 function get_saved_baseline($clientid) {
     global $db;
-    $sql = 'SELECT sb.bl_id, sb.bl_ctrl_id, sb.bl_stat, sb.bl_created, sb.bl_modified, nio.ctrl_name, nio.ctrl_desc
+    $sql = 'SELECT sb.bl_id, sb.bl_cl_id, sb.bl_ctrl_id, sb.bl_stat, sb.bl_created, sb.bl_modified, sb.bl_comments, nio.ctrl_name, nio.ctrl_desc
             FROM savedbaselines sb JOIN nist80053oscal nio ON sb.bl_ctrl_id=nio.ctrl_id
             WHERE sb.bl_cl_id = :clientid LIMIT 25';
     $statement = $db->prepare($sql);

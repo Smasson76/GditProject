@@ -48,7 +48,6 @@ if ($action == 'start_baseline') {
     include('../errors/error.php');
     } else { 
         save_baseline($clientctrls);
-        // var_dump($clientctrls);
         $controls = get_saved_baseline($clientid);
         include('implementation_page.php');
     }
@@ -56,9 +55,7 @@ if ($action == 'start_baseline') {
     $bl_implementation = filter_input(INPUT_POST, 'savebl', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
     $clientid = filter_input(INPUT_POST, 'clientid');
     update_baseline($bl_implementation);
-    $controls = get_saved_baseline($clientid);
-    include('implementation_page.php');
-}
 
+    include('../user_manager/user_dashboard.php');}
 
 ?>

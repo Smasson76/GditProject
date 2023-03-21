@@ -44,12 +44,16 @@ include '../view/header-nav.php';
                 <th>ID</th>
                 <th>Created</th>
                 <th>Modified</th>
+                <th>Status</th>
+                <th>Comments</th>
             </tr>
             <?php foreach ($baselines as $baseline) : ?>
             <tr>
                 <td><?php echo $baseline['bl_ctrl_id']; ?></td>
                 <td><?php echo $baseline['bl_created']; ?></td>
                 <td><?php echo $baseline['bl_modified']; ?></td>
+                <td><?php echo $baseline['bl_stat']; ?></td>
+                <td><?php echo $baseline['bl_comments']; ?></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action" value="update_client">
                     <input type="hidden" name="client_id" value="<?php echo $baseline['bl_id']; ?>">  

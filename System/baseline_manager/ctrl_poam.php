@@ -25,7 +25,7 @@ include '../view/header-nav.php';
                 <span class="poam-form">[POAM Controls]</span><br>
 
             <label for="poam_item_003">Weakness Name</label>
-                <textarea name="poam_item_003" rows="5"></textarea><br>
+                <textarea name="poam_item_003" rows="1"></textarea><br>
             <label for="poam_item_004">Weakness Description</label>
                 <textarea name="poam_item_004" rows="5"></textarea><br>
             <label for="poam_item_005">Weakness Detector Source</label>
