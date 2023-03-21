@@ -37,17 +37,6 @@ CREATE TABLE clients (
   UNIQUE INDEX cl_email (cl_email)
 );
 
--- GDIT SavedBaselines
-CREATE TABLE savedbaselines (
-  bl_id            INT           NOT NULL AUTO_INCREMENT,
-  bl_cl_id        INT            NOT NULL,
-  bl_ctrl_id         VARCHAR(10)    NOT NULL,
-  bl_ctrl_name       VARCHAR(50)    NOT NULL,
-  bl_ctrl_stat        VARCHAR(10),
-  PRIMARY KEY (bl_id),
-  FOREIGN KEY (bl_cl_id) REFERENCES clients(cl_id)
-  -- TODO FK -> nist table -> ctrl_id
-);
 
 -- Populate Installation table
 INSERT INTO install_options VALUES
@@ -101,8 +90,64 @@ CREATE TABLE `nist80053oscal` (
   `ctrl_name` varchar(120) DEFAULT NULL,
   `ctrl_desc` text DEFAULT NULL,
   `ctrl_disc` text DEFAULT NULL,
-  `ctrl_rel` varchar(323) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `ctrl_rel` varchar(323) DEFAULT NULL,
+  PRIMARY KEY (ctrl_ID)
+);
+
+
+
+-- GDIT SavedBaselines
+CREATE TABLE savedbaselines (
+  bl_id            INT           NOT NULL AUTO_INCREMENT,
+  bl_cl_id        INT            NOT NULL,
+  bl_ctrl_id         VARCHAR(18),
+  bl_stat        VARCHAR(15),
+  bl_created      TIMESTAMP   NOT NULL,
+  bl_modified     TIMESTAMP   NOT NULL,
+  bl_comments   TEXT,
+  PRIMARY KEY (bl_id),
+  FOREIGN KEY (bl_cl_id) REFERENCES clients(cl_id),
+  FOREIGN KEY (bl_ctrl_id) REFERENCES nist80053oscal(ctrl_id)
+  -- TODO FK -> nist table -> ctrl_id
+);
+
+CREATE TABLE nist_poam (
+  poam_id   INT   NOT NULL AUTO_INCREMENT,
+  poam_ctrl_id VARCHAR(18),
+  poam_cl_id  INT   NOT NULL,
+  poam_created  TIMESTAMP NOT NULL,
+  poam_item_003 TEXT,
+  poam_item_004 TEXT,
+  poam_item_005 VARCHAR(255),
+  poam_item_006 VARCHAR(255),
+  poam_item_007 VARCHAR(255),
+  poam_item_008 VARCHAR(255),
+  poam_item_009 VARCHAR(255),
+  poam_item_010 TEXT,
+  poam_item_011 DATE NOT NULL,
+  poam_item_012 DATE,
+  poam_item_013 TEXT,
+  poam_item_014 TEXT,
+  poam_item_015 DATE NOT NULL,
+  poam_item_016 VARCHAR(255),
+  poam_item_017 DATE,
+  poam_item_018 VARCHAR(255),
+  poam_item_019 VARCHAR(20),
+  poam_item_020 VARCHAR(20),
+  poam_item_021 VARCHAR(20),
+  poam_item_022 VARCHAR(20),
+  poam_item_023 VARCHAR(20),
+  poam_item_024 TEXT,
+  poam_item_025 TEXT,
+  poam_item_026 TEXT,
+  poam_item_027 VARCHAR(20),
+  poam_item_028 VARCHAR(20),
+  poam_item_029 DATE,
+  poam_item_030 VARCHAR(255),
+  PRIMARY KEY (poam_id),
+  FOREIGN KEY (poam_cl_id) REFERENCES clients(cl_id),
+  FOREIGN KEY (poam_ctrl_id) REFERENCES nist80053oscal(ctrl_id)
+);
 
 --
 -- Dumping data for table `nist80053oscal`

@@ -7,8 +7,11 @@ function get_controls($framework, $impact, $hide) {
                 ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id LIMIT 50';
     } else {
         $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
-                ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id WHERE ctrl_base_'
-                . $impact .'=\'x\' OR ctrl_base_low = \'\' AND ctrl_base_mod = \'\' AND ctrl_base_high = \'\'  LIMIT 50';
+        ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id WHERE ctrl_base_'
+        . $impact .'=\'x\' LIMIT 50';
+        // $sql = 'SELECT * FROM ' . $framework . ' JOIN nistbaselines
+        //         ON ' . $framework . '.ctrl_id=nistbaselines.ctrl_id WHERE ctrl_base_'
+        //         . $impact .'=\'x\' OR ctrl_base_low = \'\' AND ctrl_base_mod = \'\' AND ctrl_base_high = \'\'  LIMIT 50';
     }
     $statement = $db->prepare($sql);
     $statement->execute();
@@ -47,15 +50,43 @@ function save_baseline($clientctrls) {
         $ct_nm = $row['ctrlname'];
         $ct_sel = $row['ctrlsel'];
 
-        $sql = "INSERT INTO savedbaselines (bl_id, bl_cl_id, bl_ctrl_id, bl_ctrl_name, bl_ctrl_stat)
-        VALUES (NULL,'$cli_id','$ct_id','$ct_nm','$ct_sel')";
+        if ($ct_sel === "on") {
+            $ct_sel = "In_Progress";
+        } else {
+            $ct_sel = "Not_Applicable";
+        }
+
+        $sql = "INSERT INTO savedbaselines (bl_id, bl_cl_id, bl_ctrl_id, bl_stat)
+        VALUES (NULL,'$cli_id','$ct_id','$ct_sel')";
+        mysqli_query($link, $sql);
+    }
+}
+
+function update_baseline($bl_implementation) {
+    global $link;
+    foreach ($bl_implementation as $row) {
+        $bl_cl_id = $row['bl_cl_id'];
+        $bl_ctrl_id = $row['bl_ctrl_id'];
+        $bl_stat = $row['bl_stat'];
+        $bl_comments = $row['bl_comments'];
+        $bl_created = $row['bl_created'];
+
+        if ($bl_stat === "on") {
+            $bl_stat = "In_Progress";
+        } else {
+            $bl_stat = "Not_Applicable";
+        }
+
+        $sql = "UPDATE savedbaselines SET bl_stat = '$bl_stat',
+        bl_comments = '$bl_comments' WHERE bl_cl_id = '$bl_cl_id' AND bl_ctrl_id = '$bl_ctrl_id'
+        AND bl_created = '$bl_created'";
         mysqli_query($link, $sql);
     }
 }
 
 function get_saved_baseline($clientid) {
     global $db;
-    $sql = 'SELECT sb.bl_id, sb.bl_ctrl_id, nio.ctrl_desc
+    $sql = 'SELECT sb.bl_id, sb.bl_ctrl_id, sb.bl_stat, sb.bl_created, sb.bl_modified, nio.ctrl_name, nio.ctrl_desc
             FROM savedbaselines sb JOIN nist80053oscal nio ON sb.bl_ctrl_id=nio.ctrl_id
             WHERE sb.bl_cl_id = :clientid LIMIT 25';
     $statement = $db->prepare($sql);

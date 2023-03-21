@@ -494,9 +494,42 @@ textarea {
   color: var(--body-p);
 }
 
+.poam-form input[type=text] {
+  width: 30em;
+}
+
+.poam-form input[type=radio] {
+  padding: 1rem;
+  margin: 1rem;
+  padding-right: 0.5rem;
+  display: inline-block;
+}
+
+.poam-form textarea {
+  width: 32em;
+  padding: 1rem;
+  margin: 1rem;
+  padding-right: 0.5rem;
+  display: inline-block;
+  border: 2px solid var(--login-border-accent);
+  border-radius: 5px;
+  vertical-align: middle;
+  font-family: var(--font);
+}
+
+
 table input[type=checkbox] {
   margin: auto;
   display: flex;
+}
+
+input[type=date], .poam-form span {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-family: var(--font);
+  width: 10em;
+  margin: 1rem;
+  border: none;
 }
 
 .login-form input[type=text] {
@@ -677,15 +710,13 @@ select {
 }
 
 section#client-baseline-section {
-  float:right;
   margin: auto;
-  width: 50%;
+  width: 100%;
   padding: 10px;
 }
 
 section#client-info-section {
-  float:left;
   margin: auto;
-  width: 50%;
+  width: 100%;
   padding: 10px;
 }

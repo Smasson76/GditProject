@@ -41,16 +41,19 @@ include '../view/header-nav.php';
         <!-- display a table of clients -->
         <table>
             <tr>
-                <th>Name</th>
-                <th>&nbsp;</th>
+                <th>ID</th>
+                <th>Created</th>
+                <th>Modified</th>
             </tr>
             <?php foreach ($baselines as $baseline) : ?>
             <tr>
                 <td><?php echo $baseline['bl_ctrl_id']; ?></td>
+                <td><?php echo $baseline['bl_created']; ?></td>
+                <td><?php echo $baseline['bl_modified']; ?></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action" value="update_client">
                     <input type="hidden" name="client_id" value="<?php echo $baseline['bl_id']; ?>">  
-                </form></td>
+                </form></td>   
             </tr>
             <?php endforeach; ?>
         </table>

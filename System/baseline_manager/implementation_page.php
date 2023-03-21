@@ -15,29 +15,51 @@ $clientid = $client['cl_id'];
         <tr>
             <th class="cenx">ID</th>
             <th class="cenx">Status</th>
-            <th class="cenx">Description</th>
+            <th class="cenx">Name</th>
+            <th class="cenx">Date Created</th>
             <th class="cenx">Comments</th>
         </tr>
         
         <form action="index.php" id="bline" method="post">   
-            <input type="hidden" name="action" value="implementation">       
+            <input type="hidden" name="action" value="save_imp">  
+            <input type="hidden" name="clientid" value="<?php echo $clientid; ?>">        
             <?php foreach($controls as $control) : ?>
             <tr>
-                <td><?php echo $control['bl_ctrl_id']; ?></td>
                 <td>
-                <select name="status" id="status">
-                    <option value="Implemented">Implemented</option>
-                    <option value="Not_Applicable">Not Applicable</option>
-                    <option value="In_Progress">In Progress</option>
+                <input type="hidden" <?php echo 'name="savebl['.$control['bl_ctrl_id'].'][bl_ctrl_id]"'; ?> value="<?php echo $control['bl_ctrl_id']; ?>">
+                <input type="hidden" <?php echo 'name="savebl['.$control['bl_ctrl_id'].'][bl_cl_id]"'; ?> value="<?php echo $clientid; ?>">
+                <input type="hidden" <?php echo 'name="savebl['.$control['bl_ctrl_id'].'][bl_created]"'; ?> value="<?php echo $control['bl_created']; ?>">
+                    <?php echo $control['bl_ctrl_id']; ?>
+                </td>
+                <td>
+                <select <?php echo 'name="savebl['.$control['bl_ctrl_id'].'][bl_stat]"'; ?> id="status">
+                    <?php 
+                        if ($control['bl_stat'] == "In_Progress") {
+                            echo '<option value="Implemented">Implemented</option>';
+                            echo '<option value="Not_Applicable">Not Applicable</option>';
+                            echo '<option value="In_Progress" selected>In Progress</option>';
+                        } else if ($control['bl_stat'] == "Implemented") {
+                            echo '<option value="Implemented" selected>Implemented</option>';
+                            echo '<option value="Not_Applicable">Not Applicable</option>';
+                            echo '<option value="In_Progress">In Progress</option>';
+                        } else {
+                            echo '<option value="Implemented">Implemented</option>';
+                            echo '<option value="Not_Applicable" selected>Not Applicable</option>';
+                            echo '<option value="In_Progress">In Progress</option>';                           
+                        }
+                    ?>
                 </select>
                 </td>
-                <td style="font-size: 10pt;"><?php echo $control['ctrl_desc']; ?></td>
-                <td><textarea id="textarea" rows="3" cols="20"> </textarea>
+                <td style="font-size: 10pt;"><?php echo $control['ctrl_name']; ?></td>
+                <td style="font-size: 10pt;"><?php echo $control['bl_created']; ?></td>
+                <td><textarea <?php echo 'name="savebl['.$control['bl_ctrl_id'].'][bl_comments]"'; ?> id="textarea" rows="3" cols="20"></textarea>
 
                 </td>
             </tr>
             <?php endforeach; ?>
     </table>
-
+    <br><br>
+        <input class="button primary pill" style="margin:0 auto;" type="submit" value="Save" />
+    <br><br>
 </section>
 <?php include '../view/footer.php'; ?>
