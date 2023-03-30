@@ -1,4 +1,4 @@
-# SportsPro Technical Support
+# GRC Tool for GDIT
 
 <b>Repository for CIS 4600 - Advanced Systems Development - Northwestern State University.</b>
 <br>
