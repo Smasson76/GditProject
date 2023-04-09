@@ -47,13 +47,13 @@ INSERT INTO install_options VALUES
 
 -- Populate users table
 INSERT INTO users VALUES 
-(1, 'Skylar', 'Masson', 'smasson324986', 'password1', 'smasson324986@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
-(2, 'Aaron', 'Williams', 'awilliams299103', 'password1', 'awilliams299103@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
-(3, 'Brandon', 'Heptinstall', 'bheptinstall123289','password1', 'bheptinstall123289@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
-(4, 'Parker', 'Blanchard', 'pblanchard215922','password1', 'pblanchard215922@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
-(5, 'Raine', 'Wyandon', 'jwyandon247846','password1', 'jwyandon247846@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
-(6, 'Michael', 'Shamblin', 'mshamblin254657','password1', 'mshamblin254657@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
-(7, 'Begona', 'Perez', 'perezmirab','password1', 'perezmirab@nsula.edu', '318-000-0000', '175 Sam Sibley Dr');
+(1, 'Skylar', 'Masson', 'smasson324986@nsula.edu', 'password1', 'smasson324986@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(2, 'Aaron', 'Williams', 'awilliams299103@nsula.edu', 'password1', 'awilliams299103@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(3, 'Brandon', 'Heptinstall', 'bheptinstall123289@nsula.edu','password1', 'bheptinstall123289@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(4, 'Parker', 'Blanchard', 'pblanchard215922@nsula.edu','password1', 'pblanchard215922@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(5, 'Raine', 'Wyandon', 'jwyandon247846@nsula.edu','password1', 'jwyandon247846@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(6, 'Michael', 'Shamblin', 'mshamblin254657@nsula.edu','password1', 'mshamblin254657@nsula.edu', '318-000-0000', '175 Sam Sibley Dr'),
+(7, 'Begona', 'Perez', 'perezmirab@nsula.edu','password1', 'perezmirab@nsula.edu', '318-000-0000', '175 Sam Sibley Dr');
 
 -- Populate clients
 INSERT INTO clients VALUES 

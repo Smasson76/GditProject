@@ -1,7 +1,7 @@
 
 <header>
     <nav>
-    <div class="site-logo"><?php include('logo_lhead.php'); ?></div>
+    <div class="site-logo"><?php include('logo_g.php'); ?></div>
 	<!-- <ul class="top-nav">
         <li><a href="../user_manager/user_dashboard.php">View Dashboard</a></li>
 		<li><a href="../index.php">Logout</a></li>

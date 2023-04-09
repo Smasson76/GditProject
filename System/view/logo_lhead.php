@@ -1,4 +1,4 @@
-<svg class="lhead" id="" version="1.1" x="0px" y="0px" viewBox="0 0 1671.4 228" xml:space="preserve">
+<svg id="" version="1.1" x="0px" y="0px" viewBox="0 0 1671.4 228" xml:space="preserve">
         <title>General Dynamics Information Technology</title>
         <g>
         <path d="M1647.4,98h-71.8V81.4h64.2c3.6,0,7.5-1,7.5-5.3c0-4.4-3.8-5.3-7.5-5.3h-43.3

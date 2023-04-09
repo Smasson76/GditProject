@@ -60,7 +60,6 @@ function auth_user($user, $pass) {
     $statement->bindValue(':username', $user);
     $statement->execute();
     $u = $statement->fetch();
-    log_it($u);
     $statement->closeCursor();
     $hash = trim($u['u_password']);
     $password = trim($pass);
