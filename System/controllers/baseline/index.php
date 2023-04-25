@@ -51,11 +51,11 @@ switch ($action) {
         $baseline->setStartDate(date("Y-m-d H:i:s"));
         $baseline->setModDate(date("Y-m-d H:i:s"));
         $baseline->setComments(filter_input(INPUT_POST, 'bl_comments'));
-        $hide = false;
+
         if (isset($_POST['hide_unselected'])) {
-            $hide = true;
+            $hide = TRUE;
         } else {
-            $hide = false;
+            $hide = FALSE;
         }
 
         $baseline->setHidden($hide);
