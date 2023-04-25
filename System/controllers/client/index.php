@@ -81,6 +81,17 @@ switch ($action) {
 
         header("Location: " .$app_path.'controllers/baseline?action=view_co_baselines');
         break;
+    case 'add_client':
+        if (isset($_SESSION['adm_id'])) {
+            $current_admin = AdminDB::getAdmin($_SESSION['adm_id']);
+        }
+        if (isset($_SESSION['co_id'])) {
+            $current_client = CompanyDB::getCompany($_SESSION['co_id']);
+        }
+        
+
+        include 'client_register.php';
+        break;
     case 'view_account':
         $client = ClientDB::getClient($_SESSION['cl_id']);
         $address = AddressDB::getAddress($client->getClientAddress());

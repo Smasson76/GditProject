@@ -45,7 +45,8 @@ switch ($action) {
         // $current_client = CompanyDB::getCompany($_SESSION['co_id']);
 
         $baseline = new Baseline();
-        $baseline->setBaselineCOID(filter_input(INPUT_POST, 'co_id'));
+        $comp = filter_input(INPUT_POST, 'co_id');
+        $baseline->setBaselineCOID($comp);
         $baseline->setBaselineSystem(filter_input(INPUT_POST, 'bl_system'));
         $baseline->setImpactLvl(filter_input(INPUT_POST, 'bl_impact_lvl'));
         $baseline->setStartDate(date("Y-m-d H:i:s"));
@@ -56,6 +57,15 @@ switch ($action) {
             $hide = TRUE;
         } else {
             $hide = FALSE;
+        }
+
+        $_SESSION['co_id'] = $comp;
+
+        if (isset($_SESSION['adm_id'])) {
+            $current_admin = AdminDB::getAdmin($_SESSION['adm_id']);
+        }
+        if (isset($_SESSION['co_id'])) {
+            $current_client = CompanyDB::getCompany($_SESSION['co_id']);
         }
 
         $baseline->setHidden($hide);

@@ -24,8 +24,12 @@
                     <li class="nav-item col-7 col-lg-auto">
                         <a class="nav-link py-2 px-0 px-lg-2" href="<?php echo $app_path.'controllers/admin?action=view_account' ?>">My Profile</a>
                     </li>
-                    <li class="nav-item col-7 col-lg-auto">
-                        <a class="nav-link py-2 px-0 px-lg-2" href="<?php echo $app_path.'controllers/client?action=view_clients'?>">Clients</a>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clients</a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="<?php echo $app_path.'controllers/client?action=view_clients'?>">View All</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $app_path.'controllers/client?action=add_client'?>">Create</a></li>
+                    </ul>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Baselines</a>

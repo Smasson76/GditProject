@@ -40,6 +40,8 @@ if (isset($_SESSION['adm_id'])) {
 }
 if (isset($_SESSION['co_id'])) {
     $current_client = CompanyDB::getCompany($_SESSION['co_id']);
+} else {
+    $_SESSION['co_id'] = 1;
 }
 
 // For the Login page
